@@ -7,7 +7,8 @@ import {
   View,
 } from 'react-native';
 
-const Outcome = ({ navigation }, { outcome }) => {
+const Outcome = ({route, navigation}) => {
+  const { outcome } = route.params;
   return (
     <SafeAreaView>
       <Text>{outcome}</Text>

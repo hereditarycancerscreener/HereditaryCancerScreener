@@ -28,7 +28,7 @@ const Survey = ({ navigation }) => {
   * Controls the order in which questions will be asked
   * Needed because multi select answer choices take the user down multiple paths
   */
-  const [questionQueue, setQuestionQueue] = useState()
+  const [questionQueue, setQuestionQueue] = useState([])
 
   /*
   * Controls whether the user is taken down the family track after they have completed the personal track
@@ -48,33 +48,37 @@ const Survey = ({ navigation }) => {
   * Updates the current question the user is on or 
   */
   const updateQuestionOutcome = (answer) => { // if queue is empty, end survey with current outcome
-    const nextQuestion = questionObj.choices.find(choice => choice.value === answer).nextQuestion;
+    var nextQuestions;
+    if (typeof answer === 'string')
+      nextQuestions = [questionObj.choices.find(choice => choice.value === answer)];
+    else
+      nextQuestions = questionObj.choices.filter(choice => answer.includes(choice.value));
 
-    if (nextQuestion === 'outcome')
+    var next;
+    if (questionQueue.length === 0) {
+      next = nextQuestions.shift();
+      setQuestionQueue(nextQuestions)
+    } else {
+      next = questionQueue.shift();
+      setQuestionQueue([...questionQueue, ...nextQuestions])
+    }
+
+    if (next.nextQuestion === 'outcome')
       updateOutcome(questionObj.choices.find(choice => choice.value === answer).outcome)
 
-    if (nextQuestion === 'family track')
+    if (next.nextQuestion === 'family track')
       setTraverseFamilyTrack(true)
 
-    // // if questionQueue is empty and ...
-    // if (questionQueue && traverseFamilyTrack === true)
-    //   setSurveySchema(FamilyHistorySchema)
-
-    // // if questionQueue is empty and next question is an outcome, end the survey
-    // if (questionQueue && surveySchema.questions[nextQuestion])
-    //   setSurveySchema(FamilyHistorySchema)
-
     // update to base on question queue: setQuestionQueue(...questionQueue, [])
-    setQuestionObj(surveySchema.questions[nextQuestion])
+    setQuestionObj(surveySchema.questions[next.nextQuestion])
   }
 
   // clean up, passing outcome doesn't work
   const updateOutcome = (outcomeParam) => {
     setOutcome(outcomeParam)
 
-    // if outcome meets criteria, end survey and go straight to meets criteria screen
-    if (outcomeParam === 'meets criteria')
-      navigation.replace('Outcome', outcomeParam)
+    // show out come
+    navigation.replace('Outcome', {outcome: outcomeParam})
   }
 
   return (

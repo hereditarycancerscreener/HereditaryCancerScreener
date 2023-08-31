@@ -38,11 +38,13 @@ export const PersonalHistorySchema = {
       choices: [
         {
           value: "Ovarian",
-          nextQuestion: "meets criteria"
+          nextQuestion: "outcome",
+          outcome: "meets criteria"
         },
         {
           value: "Pancreatic",
-          nextQuestion: "meets criteria"
+          nextQuestion: "outcome",
+          outcome: "meets criteria"
         },
         {
           value: "Colon",
@@ -77,7 +79,8 @@ export const PersonalHistorySchema = {
         },
         {
           value: "No",
-          nextQuestion: "does not meet criteria"
+          nextQuestion: "outcome",
+          outcome: "does not meet criteria"
         },
         // {
         //   value: "Limited or Unknown",
