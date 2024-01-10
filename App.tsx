@@ -5,6 +5,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+import Login from './src/screens/Login';
 import Survey from './src/screens/Survey.js';
 import Disclaimer from './src/screens/Disclaimer.js';
 import Outcome from './src/screens/Outcome.js';
@@ -15,6 +16,7 @@ function App(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Disclaimer" component={Disclaimer}/>
         <Stack.Screen name="Survey" component={Survey}/>
         <Stack.Screen name="Outcome" component={Outcome}/>
