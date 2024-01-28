@@ -1,26 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
   Text,
   TouchableOpacity,
-  View,
 } from 'react-native';
 
+import { Screen } from '../../constants/Screens';
+import { styles } from './Styles';
 
 const Disclaimer = ({ navigation }) => {
   return (
     <SafeAreaView>
       <Text>Insert disclaimer here!</Text>
-      <TouchableOpacity onPress={() => navigation.replace('Survey')}>
+      <TouchableOpacity onPress={() => navigation.replace(Screen.SURVEY_SCREEN)}>
         <Text>Begin Survey</Text>
       </TouchableOpacity>
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-
-});
 
 export default Disclaimer;

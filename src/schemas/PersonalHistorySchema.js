@@ -1,112 +1,110 @@
-export const PersonalHistorySchema = {
-  questions: [ // what if patient doesn't know?
+import { Outcome } from '../constants/Outcomes';
+import { FAMILY_TRACK } from '../constants/Outcomes';
+
+export const PERSONAL_HISTORY_SCHEMA = {
+  questions: [
     {
-      id: "0",
-      type: "single",
+      ID: 0,
+      isMultiSelect: false,
       question: "Is your patient of Ashkenazi Jewish Ancestry with at least one of 4 Ashkenazi Jewish grandparents?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
-          nextQuestion: "1"
+          nextQuestion: 1,
         }
       ]
     },
     {
-      id: "1",
-      type: "single",
+      ID: 1,
+      isMultiSelect: false,
       question: "Does your patient have Personal History of Cancer?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "2"
+          nextQuestion: 2,
         },
         {
           value: "No",
-          nextQuestion: "3"
+          nextQuestion: 3,
         }
       ]
     },
     {
-      id: "2",
-      type: "multi",
+      ID: 2,
+      isMultiSelect: true,
       question: "What kind of cancer(s) did/does your patient have?",
       choices: [
         {
           value: "Ovarian",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Pancreatic",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Colon",
-          nextQuestion: "4"
+          nextQuestion: 4,
         },
         {
           value: "Renal",
-          nextQuestion: "5"
+          nextQuestion: 5,
         },
         {
           value: "Endometrial",
-          nextQuestion: "8"
+          nextQuestion: 8,
         },
         {
           value: "Breast",
-          nextQuestion: "16"
+          nextQuestion: 16,
         },
         {
           value: "Prostate",
-          nextQuestion: "29"
+          nextQuestion: 17,
         }
       ]
     },
     {
-      id: "3",
-      type: "single",
+      ID: "3",
+      isMultiSelect: false,
       question: "Does your patient have a family history of cancer?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "family track"
+          nextQuestion: FAMILY_TRACK
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
         {
           value: "Unsure",
-          nextQuestion: "genetic counselor"
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
         }
       ]
     },
     {
-      id: "4",
-      type: "single",
+      ID: "4",
+      isMultiSelect: false,
       question: "At what age was your patient diagnosed with colon cancer?",
       choices: [
         {
           value: "50 or older",
-          nextQuestion: "genetic counselor"
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
         },
         {
           value: "Under the age of 50",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "5",
-      type: "single",
+      ID: "5",
+      isMultiSelect: false,
       question: "At what age was your patient diagnosed with renal cancer?",
       choices: [
         {
@@ -115,20 +113,18 @@ export const PersonalHistorySchema = {
         },
         {
           value: "Under 47",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "6",
-      type: "single",
+      ID: "6",
+      isMultiSelect: false,
       question: "Were there additional renal cancer diagnoses in a first or second degree relative?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
@@ -137,25 +133,23 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "7",
-      type: "single",
-      question: "Did the tumor have any of the following histologic characteristics? ADD BULLETS",
+      ID: "7",
+      isMultiSelect: false,
+      question: "DID the tumor have any of the following histologic characteristics? ADD BULLETS",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "8",
-      type: "single",
+      ID: "8",
+      isMultiSelect: false,
       question: "At what age was your patient diagnosed with endometrial cancer?",
       choices: [
         {
@@ -164,14 +158,13 @@ export const PersonalHistorySchema = {
         },
         {
           value: "Under 50",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "9",
-      type: "single",
+      ID: "9",
+      isMultiSelect: false,
       question: "Has your patient been diagnosed with another cancer?",
       choices: [
         {
@@ -185,24 +178,23 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "10",
-      type: "single",
+      ID: "10",
+      isMultiSelect: false,
       question: "Was it one of the following cancers? ADD BULLETS",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
-          nextQuestion: "familyTrack" // is this right lol makes no sense
+          nextQuestion: FAMILY_TRACK
         },
       ]
     },
     {
-      id: "11",
-      type: "single",
+      ID: "11",
+      isMultiSelect: false,
       question: "Is there a family history of cancer?",
       choices: [
         {
@@ -211,14 +203,13 @@ export const PersonalHistorySchema = {
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "12",
-      type: "single",
+      ID: "12",
+      isMultiSelect: false,
       question: "Was it one of the following cancers through a second degree relative? ADD BULLETS",
       choices: [
         {
@@ -232,8 +223,8 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "13",
-      type: "single",
+      ID: "13",
+      isMultiSelect: false,
       question: "Were any of them 50 or older?",
       choices: [
         {
@@ -242,47 +233,43 @@ export const PersonalHistorySchema = {
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "14",
-      type: "single",
+      ID: "14",
+      isMultiSelect: false,
       question: "How many of them were younger than 50?",
       choices: [
         {
           value: "One",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
         {
           value: "Two or more",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "15",
-      type: "single",
+      ID: "15",
+      isMultiSelect: false,
       question: "Were there other cancer diagnoses through third degree relatives?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "familyTrack"
+          nextQuestion: FAMILY_TRACK
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "16",
-      type: "single",
+      ID: "16",
+      isMultiSelect: false,
       question: "At what age was your patient diagnosed with breast cancer?",
       choices: [
         {
@@ -291,20 +278,18 @@ export const PersonalHistorySchema = {
         },
         {
           value: "Under 51",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "17",
-      type: "single",
+      ID: "17",
+      isMultiSelect: false,
       question: "Were there multiple primary breast cancers?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
@@ -313,14 +298,13 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "18",
-      type: "single",
+      ID: "18",
+      isMultiSelect: false,
       question: "Was it triple negative?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
@@ -329,8 +313,8 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "19",
-      type: "single",
+      ID: "19",
+      isMultiSelect: false,
       question: "Was it lobular breast cancer?",
       choices: [
         {
@@ -344,14 +328,13 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "20",
-      type: "single",
+      ID: "20",
+      isMultiSelect: false,
       question: "Is there a personal or family history of diffuse gastric cancer?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
@@ -360,8 +343,8 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "21",
-      type: "single",
+      ID: "21",
+      isMultiSelect: false,
       question: "Do you have a family history of cancer through third degree relatives?",
       choices: [
         {
@@ -370,34 +353,30 @@ export const PersonalHistorySchema = {
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "22",
-      type: "multi",
-      question: "Which type of cancer(s) did they have?",
+      ID: "22",
+      isMultiSelect: true,
+      question: "Which isMultiSelect of cancer(s) dID they have?",
       choices: [
         {
           value: "Ovarian",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Pancreatic",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Colon",
-          nextQuestion: "fanilyTrack"
+          nextQuestion: FAMILY_TRACK
         },
         {
           value: "Male breast cancer",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Female breast cancer",
@@ -405,8 +384,7 @@ export const PersonalHistorySchema = {
         },
         {
           value: "High grade prostate",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Low grade prostate",
@@ -415,14 +393,13 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "23",
-      type: "single",
+      ID: "23",
+      isMultiSelect: false,
       question: "Were there two or more relatives with prostate cancer?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
@@ -431,31 +408,28 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "24",
-      type: "single",
-      question: "Did anyone else have breast cancer?", // this is vauge wording
+      ID: "24",
+      isMultiSelect: false,
+      question: "DID anyone else have breast cancer?", // this is vauge wording
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "25",
-      type: "single",
+      ID: "25",
+      isMultiSelect: false,
       question: "Were they 50 or younger?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
@@ -464,8 +438,8 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "26",
-      type: "single",
+      ID: "26",
+      isMultiSelect: false,
       question: "What is the maximum number of breast cancer diagnoses a relative had?", // check wording
       choices: [
         {
@@ -474,20 +448,18 @@ export const PersonalHistorySchema = {
         },
         {
           value: "Two or more",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "27",
-      type: "single",
+      ID: "27",
+      isMultiSelect: false,
       question: "Did anyone in the family have prostate cancer?", // whose family?
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
@@ -496,51 +468,47 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "28",
-      type: "single",
+      ID: "28",
+      isMultiSelect: false,
       question: "Was there any other cancer through a third degree relative?", // patient or relative who had prostate?
       choices: [
         {
           value: "Yes",
-          nextQuestion: "familyTrack"
+          nextQuestion: FAMILY_TRACK
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "29",
-      type: "single",
+      ID: "29",
+      isMultiSelect: false,
       question: "What grade was the prostate cancer?",
       choices: [
         {
           value: "High-grade",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Intraductal or cribiform",
-          nextQuestion: "genetic counselor"
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
         },
         {
           value: "Low-grade",
-          nextQuestion: "outcome",
-          outcome: "30"
+          nextQuestion: "30"
         },
       ]
     },
     {
-      id: "30",
-      type: "single",
+      ID: "30",
+      isMultiSelect: false,
       question: "Does the patient have a history of any of the following cancers? ADD BULLETS",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
@@ -549,9 +517,9 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "31",
-      type: "single",
-      question: "Does the patient have a family history of cancer?", // can we cut this
+      ID: "31",
+      isMultiSelect: false,
+      question: "Does the patient have a family history of cancer?",
       choices: [
         {
           value: "Yes",
@@ -559,14 +527,13 @@ export const PersonalHistorySchema = {
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "32",
-      type: "single",
+      ID: "32",
+      isMultiSelect: false,
       question: "Did any third degree relatives have cancer",
       choices: [
         {
@@ -575,35 +542,30 @@ export const PersonalHistorySchema = {
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "33",
-      type: "multi",
+      ID: "33",
+      isMultiSelect: true,
       question: "Which cancer(s) did the third degree relative have?",
       choices: [
         {
           value: "Ovarian",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Pancreatic",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Prostate",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nnextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Male breast",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "Female breast",
@@ -616,8 +578,8 @@ export const PersonalHistorySchema = {
       ]
     },
     {
-      id: "34",
-      type: "single",
+      ID: "34",
+      isMultiSelect: false,
       question: "How many third degree relatives had breast cancer?",
       choices: [
         {
@@ -626,14 +588,13 @@ export const PersonalHistorySchema = {
         },
         {
           value: "Two or more",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "35",
-      type: "single",
+      ID: "35",
+      isMultiSelect: false,
       question: "How old was the third degree relative?",
       choices: [
         {
@@ -642,31 +603,28 @@ export const PersonalHistorySchema = {
         },
         {
           value: "50 or younger",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
       ]
     },
     {
-      id: "36",
-      type: "single",
-      question: "Did any other relative have prostate cancer?",
+      ID: "36",
+      isMultiSelect: false,
+      question: "DID any other relative have prostate cancer?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "37",
-      type: "single",
+      ID: "37",
+      isMultiSelect: false,
       question: "Were there three or more relatives that had ...? ADD BULLETS",
       choices: [
         {
@@ -675,25 +633,22 @@ export const PersonalHistorySchema = {
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
     {
-      id: "39",
-      type: "single",
+      ID: "39",
+      isMultiSelect: false,
       question: "Were there first or second degree relatives that had ...? ADD BULLETS",
       choices: [
         {
           value: "Yes",
-          nextQuestion: "outcome",
-          outcome: "meets criteria"
+          nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
           value: "No",
-          nextQuestion: "outcome",
-          outcome: "does not meet criteria"
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
       ]
     },
