@@ -109,7 +109,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "47 or older",
-          nextQuestion: "6"
+          nextQuestion: 6
         },
         {
           value: "Under 47",
@@ -128,7 +128,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "7"
+          nextQuestion: 7
         },
       ]
     },
@@ -154,7 +154,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "50 or older",
-          nextQuestion: "9"
+          nextQuestion: 9
         },
         {
           value: "Under 50",
@@ -169,11 +169,11 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "10"
+          nextQuestion: 10
         },
         {
           value: "No",
-          nextQuestion: "11"
+          nextQuestion: 11
         },
       ]
     },
@@ -199,7 +199,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "12"
+          nextQuestion: 12
         },
         {
           value: "No",
@@ -214,11 +214,11 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "13"
+          nextQuestion: 13
         },
         {
           value: "No",
-          nextQuestion: "15"
+          nextQuestion: 15
         },
       ]
     },
@@ -229,7 +229,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "14"
+          nextQuestion: 14
         },
         {
           value: "No",
@@ -274,7 +274,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "51 or older",
-          nextQuestion: "17"
+          nextQuestion: 17
         },
         {
           value: "Under 51",
@@ -293,7 +293,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "18"
+          nextQuestion: 18
         },
       ]
     },
@@ -308,7 +308,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "19"
+          nextQuestion: 19
         },
       ]
     },
@@ -319,11 +319,11 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "20"
+          nextQuestion: 20
         },
         {
           value: "No",
-          nextQuestion: "21"
+          nextQuestion: 21
         },
       ]
     },
@@ -338,7 +338,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "21"
+          nextQuestion: 21
         },
       ]
     },
@@ -349,7 +349,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "22"
+          nextQuestion: 22
         },
         {
           value: "No",
@@ -380,7 +380,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Female breast cancer",
-          nextQuestion: "25"
+          nextQuestion: 25
         },
         {
           value: "High grade prostate",
@@ -388,7 +388,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Low grade prostate",
-          nextQuestion: "23" // this track doesn't make much sense
+          nextQuestion: 23 // this track doesn't make much sense
         }
       ]
     },
@@ -403,7 +403,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "24"
+          nextQuestion: 24
         },
       ]
     },
@@ -433,7 +433,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "26"
+          nextQuestion: 26
         },
       ]
     },
@@ -444,7 +444,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "One",
-          nextQuestion: "27"
+          nextQuestion: 27
         },
         {
           value: "Two or more",
@@ -463,7 +463,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "28"
+          nextQuestion: 28
         },
       ]
     },
@@ -497,7 +497,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Low-grade",
-          nextQuestion: "30"
+          nextQuestion: 30
         },
       ]
     },
@@ -512,7 +512,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "31"
+          nextQuestion: 31
         },
       ]
     },
@@ -523,7 +523,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "32"
+          nextQuestion: 32
         },
         {
           value: "No",
@@ -538,7 +538,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "33"
+          nextQuestion: 33
         },
         {
           value: "No",
@@ -569,11 +569,11 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Female breast",
-          nextQuestion: "34"
+          nextQuestion: 34
         },
         {
           value: "Colon, endometrial, gastric, upper tract urothelial, glioblastoma, biliary track, or small intenstine",
-          nextQuestion: "37"
+          nextQuestion: 37
         },
       ]
     },
@@ -584,7 +584,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "One",
-          nextQuestion: "35"
+          nextQuestion: 35
         },
         {
           value: "Two or more",
@@ -599,7 +599,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Older than 50",
-          nextQuestion: "36"
+          nextQuestion: 36
         },
         {
           value: "50 or younger",
@@ -629,7 +629,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "38"
+          nextQuestion: 38
         },
         {
           value: "No",

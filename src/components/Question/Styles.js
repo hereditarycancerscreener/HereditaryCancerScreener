@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
 
     },
     questionText: {
-      marginTop: 150,
+      marginTop: 20,
       marginLeft: 50,
       marginRight: 50,
       textAlign: 'center',
