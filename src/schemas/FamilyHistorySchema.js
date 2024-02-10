@@ -56,7 +56,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Third degree",
-          nextQuestion: "2"
+          nextQuestion: 3
         }
       ]
     },
@@ -90,7 +90,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Second degree",
-          nextQuestion: "4"
+          nextQuestion: 4
         }
       ]
     },
@@ -105,7 +105,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Fewer than 3",
-          nextQuestion: "5"
+          nextQuestion: 5
         }
       ]
     },
@@ -131,11 +131,11 @@ export const FAMILY_HISTORY_SCHEMA = {
       choices: [
         {
           value: "First degree",
-          nextQuestion: "7"
+          nextQuestion: 7
         },
         {
           value: "Second degree",
-          nextQuestion: "12"
+          nextQuestion: 12
         },
         {
           value: "Third degree",
@@ -150,7 +150,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       choices: [
         {
           value: "50 or older",
-          nextQuestion: "8"
+          nextQuestion: 8
         },
         {
           value: "Under the age of 50",
@@ -169,7 +169,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "9"
+          nextQuestion: 9
         }
       ]
     },
@@ -180,7 +180,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: "10"
+          nextQuestion: 10
         },
         {
           value: "No",
@@ -199,7 +199,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Two",
-          nextQuestion: "11"
+          nextQuestion: 11
         },
         {
           value: "Three or more",
@@ -233,7 +233,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Two",
-          nextQuestion: "13"
+          nextQuestion: 13
         },
         {
           value: "Three or more",
@@ -263,7 +263,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       choices: [
         {
           value: "One",
-          nextQuestion: "15"
+          nextQuestion: 15
         },
         {
           value: "Two or more",
@@ -278,7 +278,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       choices: [
         {
           value: "47 or older",
-          nextQuestion: "16"
+          nextQuestion: 16
         },
         {
           value: "Under the age of 47",
@@ -312,7 +312,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       choices: [
         {
           value: "First degree",
-          nextQuestion: "18"
+          nextQuestion: 18
         },
         {
           value: "Second degree",
@@ -331,7 +331,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: "19"
+          nextQuestion: 19
         }
       ]
     },
@@ -350,7 +350,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Yes ADD BULLETS",
-          nextQuestion: "6"
+          nextQuestion: 6
         },
         {
           value: "No",

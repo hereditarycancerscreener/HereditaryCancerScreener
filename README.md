@@ -64,6 +64,11 @@ You've successfully run and modified your React Native App. :partying_face:
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
 - If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
 
+# Installation Versioning
+- Ruby 3.0.* or higher
+- Cocoapods 1.14.* or lower - 1.15.* compatability error - [Git Issue](https://github.com/facebook/react-native/issues/42698)
+- cd ios then pod install prior to npm start
+
 # Troubleshooting
 
 If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.

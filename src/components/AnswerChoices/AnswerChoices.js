@@ -9,32 +9,39 @@ import {
 import CheckBox from '@react-native-community/checkbox';
 
 import { styles } from './Styles';
+import SubmitButton from '../SubmitButton/SubmitButton';
 
-const AnswerChoices = ({ questionObj, handleAnswerSelection }) => {
+
+const AnswerChoices = ({ questionObj, handleAnswerSelection, handleMultiAnswerSelection, handleMultiSubmit }) => {
     return (
         <View style={styles.responseButtonContainer}>
             {
                 questionObj.isMultiSelect === false ? (
-                    questionObj.choices.map((answer, key) => {
-                        return (
-                            <TouchableOpacity style={styles.responseButton} key={key}>
-                                <Text style={styles.responseButtonText} onPress={() => handleAnswerSelection(answer)}>{answer.value}</Text>
-                            </TouchableOpacity>
-                        );
-                    })
+                    questionObj.choices.map((answer, key) => (
+                        <TouchableOpacity style={styles.responseButton} key={key} onPress={() => handleAnswerSelection(answer)}>
+                            <Text style={styles.responseButtonText}>{answer.value}</Text>
+                        </TouchableOpacity>
+                    ))
                 ) : (
-                    questionObj.choices.map((answer, key) => {
-                        return (
-                            <>
-                                <CheckBox key={key} />
-                                <Text style={styles.responseButtonText} onPress={() => handleAnswerSelection(answer)}>{answer.value}</Text>
-                            </>
-                        );
-                    })
+                    <View>
+                        {questionObj.choices.map((answer, key) => (
+                            <View key={key} style={styles.checkboxContainer}>
+                                <CheckBox
+                                    value={answer.selected}
+                                    onValueChange={() => handleMultiAnswerSelection(answer)}
+                                />
+                                <Text style={styles.checkboxLabel} onPress={() => handleMultiAnswerSelection(answer)}>
+                                    {answer.value}
+                                </Text>
+                            </View>
+                        ))}
+                        <SubmitButton style={styles.submitButton} onSubmit={handleMultiSubmit} />
+                    </View>
                 )
             }
         </View>
     )
 }
+
 
 export default AnswerChoices;

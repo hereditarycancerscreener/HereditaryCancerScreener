@@ -5,7 +5,6 @@ import {
 
 import Question from "../../components/Question/Question";
 import AnswerChoices from "../../components/AnswerChoices/AnswerChoices";
-import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import { Outcome } from '../../constants/Outcomes';
 import { FAMILY_TRACK } from '../../constants/Outcomes';
 import { Screen } from '../../constants/Screens';
@@ -18,12 +17,7 @@ const Survey = ({ navigation }) => {
   * Controls which survey json object is being traversed
   * Survey always begins with Personal History questions
   */
-  let surveySchema = PERSONAL_HISTORY_SCHEMA;
-
-  /*
-  * Controls whether the user is taken down the family track after they have completed the personal track
-  */
-  let traverseFamilyTrack = false;
+  const [surveySchema, setSurveySchema]  = useState(PERSONAL_HISTORY_SCHEMA);
 
   /*
   * Controls the question object the user is currently on, including question and answer choices
@@ -44,6 +38,13 @@ const Survey = ({ navigation }) => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   /*
+  * Contains the multi select answer choices the user selected.
+  * Does not utilize useEffect instead uses a submit button to trigger the update
+  * TODO: will be used to help store all selected answers during breadcrumb implementation
+  */
+  const [selectedMultiAnswers, setSelectedMultiAnswers] = useState([]);
+
+  /*
   * Updates the final outcome the user recieves
   * Is "does not meet criteria" by default, only gets updated to "meets criteria" or "speak to a genetic counselor"
   * If updated to "meets criteria", the survey is completed
@@ -54,12 +55,14 @@ const Survey = ({ navigation }) => {
     if (selectedAnswer === null) {
       return;
     }
-
-    if (selectedAnswer.nextQuestion in Outcome) {
+    console.log("Selected answer: ", selectedAnswer)
+    if (Object.values(Outcome).includes(selectedAnswer.nextQuestion)) {
       console.log("Updating outcome...")
-      updateOutcome(selectedAnswer.nextQuestion);
-    } else if (selectedAnswer.nextQuestion === FAMILY_TRACK) {
-      traverseFamilyTrack = true;
+      navigation.replace(Screen.OUTCOME_SCREEN, {outcome: selectedAnswer.nextQuestion});
+    } else if (selectedAnswer.nextQuestion == FAMILY_TRACK) {
+      console.log("Switching to family history schema...")
+      updateQuestionNoQueue(FAMILY_HISTORY_SCHEMA.questions[0]);
+      setSurveySchema(FAMILY_HISTORY_SCHEMA);
     } else if (Number.isInteger(selectedAnswer.nextQuestion)) {
       console.log("Updating question queue...")
       updateQuestionQueue(selectedAnswer.nextQuestion);
@@ -72,16 +75,12 @@ const Survey = ({ navigation }) => {
     if (selectedAnswer === null) {
       return;
     }
-
+    
     if (questionQueue.length > 0) {
       console.log("Updating question...")
       updateQuestion();
     } else {
-      if (traverseFamilyTrack === true) {
-        surveySchema = FAMILY_HISTORY_SCHEMA;
-        setQuestionObj(surveySchema.questions[0]);
-        setQuestionQueue([]);
-      } else {
+      {
         navigation.replace(Screen.OUTCOME_SCREEN, {outcome: outcome})
       }
     }
@@ -91,11 +90,37 @@ const Survey = ({ navigation }) => {
     setSelectedAnswer(answerChoice);
   }
 
-  const updateOutcome = (updatedOutcome) => {
-    setOutcome(updatedOutcome);
-    if (updatedOutcome === Outcome.MEETS_CRITERIA) {
-      navigation.replace(Screen.OUTCOME_SCREEN, {outcome: updatedOutcome});
+  const handleMultiAnswerSelection = (answerChoice) => {
+    const tempList = [...selectedMultiAnswers];
+    const index = tempList.findIndex(answer => answer === answerChoice);
+    if (index !== -1) {
+      tempList.splice(index, 1);
+    } else {
+      tempList.push(answerChoice);
     }
+    setSelectedMultiAnswers(tempList);
+  }
+
+  const handleMultiSubmit = () => {
+    if (selectedMultiAnswers.length == 0) {
+      return;
+    } else {
+      new_questions = []
+      selectedMultiAnswers.forEach((answer) => 
+      {if (answer.nextQuestion in Outcome) {
+        console.log("Updating outcome...")
+        navigation.replace(Screen.OUTCOME_SCREEN, {outcome: answer.nextQuestion});
+      } else if (answer.nextQuestion === FAMILY_TRACK) {
+        setQuestionQueue([FAMILY_HISTORY_SCHEMA.questions[0]]);
+      } else if (Number.isInteger(answer.nextQuestion)) {
+        console.log("Updating multiquestion queue...")
+        new_questions.push(answer.nextQuestion);
+      } else {
+        console.log("ERROR: unknown schema structure in multianswer selection");
+      }} );
+    }
+    setQuestionQueue([...questionQueue, ...new_questions]);
+    setSelectedMultiAnswers([]);
   }
 
   // edit logic to work with multi select
@@ -109,11 +134,14 @@ const Survey = ({ navigation }) => {
     setQuestionObj(surveySchema.questions[nextQuestion]);
   }
 
+  const updateQuestionNoQueue = (nextQuestion) => {
+    setQuestionObj(nextQuestion);
+  }
+
   return (
     <SafeAreaView style={styles.safeBackground}>
       <Question questionObj={questionObj} />
-      <AnswerChoices questionObj={questionObj} handleAnswerSelection={handleAnswerSelection} />
-      {questionObj.isMultiSelect === true && <SubmitButton />} 
+      <AnswerChoices questionObj={questionObj} handleAnswerSelection={handleAnswerSelection} handleMultiAnswerSelection={handleMultiAnswerSelection} handleMultiSubmit={handleMultiSubmit} />
       {/* <TouchableOpacity style={styles.navButton}> */}
         {/* <FontAwesomeIcon icon={faAngleLeft} color={"white"} size={30}/> */}
       {/* </TouchableOpacity> */}
