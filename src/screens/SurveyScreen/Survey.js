@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {
+  Text,
+  TouchableOpacity,
   SafeAreaView,
+  View,
 } from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft'
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight'
 
 import Question from "../../components/Question/Question";
 import AnswerChoices from "../../components/AnswerChoices/AnswerChoices";
@@ -141,10 +147,19 @@ const Survey = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeBackground}>
       <Question questionObj={questionObj} />
-      <AnswerChoices questionObj={questionObj} handleAnswerSelection={handleAnswerSelection} handleMultiAnswerSelection={handleMultiAnswerSelection} handleMultiSubmit={handleMultiSubmit} />
-      {/* <TouchableOpacity style={styles.navButton}> */}
-        {/* <FontAwesomeIcon icon={faAngleLeft} color={"white"} size={30}/> */}
-      {/* </TouchableOpacity> */}
+        <AnswerChoices questionObj={questionObj} handleAnswerSelection={handleAnswerSelection} handleMultiAnswerSelection={handleMultiAnswerSelection} handleMultiSubmit={handleMultiSubmit} />
+      <View style={styles.navButtonContainer}>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesomeIcon icon={faAngleLeft} color={"white"} size={30}/>
+        </TouchableOpacity>
+
+        {questionObj.isMultiSelect &&
+          <TouchableOpacity style={styles.navButton}>
+            <FontAwesomeIcon icon={faAngleRight} color={"white"} size={30}/>
+          </TouchableOpacity>
+        }
+      </View>
+      <Text style={styles.questionIDText}>{questionObj.ID}</Text>
     </SafeAreaView>
   )
 }

@@ -6,7 +6,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
     {
       ID: 0,
       isMultiSelect: false,
-      question: "Is your patient of Ashkenazi Jewish Ancestry with at least one of 4 Ashkenazi Jewish grandparents?",
+      question: "Is the patient of Ashkenazi Jewish ancestry with at least one of four Ashkenazi Jewish grandparents?",
       choices: [
         {
           value: "Yes",
@@ -15,13 +15,17 @@ export const PERSONAL_HISTORY_SCHEMA = {
         {
           value: "No",
           nextQuestion: 1,
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
         }
       ]
     },
     {
       ID: 1,
       isMultiSelect: false,
-      question: "Does your patient have Personal History of Cancer?",
+      question: "Does the patient have a personal history of cancer?",
       choices: [
         {
           value: "Yes",
@@ -30,13 +34,17 @@ export const PERSONAL_HISTORY_SCHEMA = {
         {
           value: "No",
           nextQuestion: 3,
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
         }
       ]
     },
     {
       ID: 2,
       isMultiSelect: true,
-      question: "What kind of cancer(s) did/does your patient have?",
+      question: "What kind of cancer(s) was the patient diagnosed with?",
       choices: [
         {
           value: "Ovarian",
@@ -64,14 +72,22 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Prostate",
-          nextQuestion: 17,
+          nextQuestion: 29,
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
         }
       ]
     },
     {
       ID: "3",
       isMultiSelect: false,
-      question: "Does your patient have a family history of cancer?",
+      question: "Does the patient have a family history of cancer?",
       choices: [
         {
           value: "Yes",
@@ -82,7 +98,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
         {
-          value: "Unsure",
+          value: "I don't know",
           nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
         }
       ]
@@ -90,7 +106,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
     {
       ID: "4",
       isMultiSelect: false,
-      question: "At what age was your patient diagnosed with colon cancer?",
+      question: "At what age was the patient diagnosed with colon cancer?",
       choices: [
         {
           value: "50 or older",
@@ -100,21 +116,29 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "Under the age of 50",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "5",
       isMultiSelect: false,
-      question: "At what age was your patient diagnosed with renal cancer?",
+      question: "At what age was the patient diagnosed with renal cancer?",
       choices: [
         {
           value: "47 or older",
           nextQuestion: 6
         },
         {
-          value: "Under 47",
+          value: "Under the age of 47",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
@@ -130,12 +154,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 7
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "7",
       isMultiSelect: false,
-      question: "DID the tumor have any of the following histologic characteristics? ADD BULLETS",
+      question: "Did the relative's tumor have any of the following histologic characteristics? Multifocal papillary histology, HLRCC-associated RCC, RCC with fumarate hydratase (FH) deficiency or other histologic features associated with HLRCC, Birt-Hogg-Dubé syndrome (BHDS)-related histology (multiple chromophobe, oncocytoma, or oncocytic hybrid), Angiomyolipomas of the kidney and one additional tuberous sclerosis complex (TSC) criterion in the same person, Succinate dehydrogenase (SDH)-deficient RCC histologye",
       choices: [
         {
           value: "Yes",
@@ -145,27 +173,35 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "8",
       isMultiSelect: false,
-      question: "At what age was your patient diagnosed with endometrial cancer?",
+      question: "What age was the patient diagnosed with endometrial cancer at?",
       choices: [
         {
           value: "50 or older",
           nextQuestion: 9
         },
         {
-          value: "Under 50",
+          value: "Under the age of 50",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "9",
       isMultiSelect: false,
-      question: "Has your patient been diagnosed with another cancer?",
+      question: "Has the patient been diagnosed with another cancer?",
       choices: [
         {
           value: "Yes",
@@ -175,12 +211,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 11
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "10",
       isMultiSelect: false,
-      question: "Was it one of the following cancers? ADD BULLETS",
+      question: "Was it one of the following cancers? E colon, Gastric, Pancreas, Small Bowel, Biliary Tract, Brain, Bladder/Urothelial, and/or Small intestine",
       choices: [
         {
           value: "Yes",
@@ -190,12 +230,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: FAMILY_TRACK
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "11",
       isMultiSelect: false,
-      question: "Is there a family history of cancer?",
+      question: "Does the patient have a family history of cancer?",
       choices: [
         {
           value: "Yes",
@@ -205,12 +249,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "12",
       isMultiSelect: false,
-      question: "Was it one of the following cancers through a second degree relative? ADD BULLETS",
+      question: "Was it one of the following cancers through a second degree relative? Colon, Gastric, Pancreas, Small Bowel, Biliary Tract, Brain, Bladder/Urothelial, and/or Small intestine, sebaceous adenomas, sebaceous carcinomas, keratoacanthoma",
       choices: [
         {
           value: "Yes",
@@ -220,12 +268,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 15
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "13",
       isMultiSelect: false,
-      question: "Were any of them 50 or older?",
+      question: "Were any of the relatives 50 or older?",
       choices: [
         {
           value: "Yes",
@@ -235,12 +287,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "14",
       isMultiSelect: false,
-      question: "How many of them were younger than 50?",
+      question: "How many of the relatives were younger than 50?",
       choices: [
         {
           value: "One",
@@ -250,6 +306,10 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "Two or more",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
@@ -265,21 +325,29 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "16",
       isMultiSelect: false,
-      question: "At what age was your patient diagnosed with breast cancer?",
+      question: "What age was the patient diagnosed with breast cancer at?",
       choices: [
         {
           value: "51 or older",
           nextQuestion: 17
         },
         {
-          value: "Under 51",
+          value: "Under the age of 51",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
@@ -295,6 +363,10 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 18
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
@@ -310,6 +382,10 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 19
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
@@ -325,12 +401,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 21
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "20",
       isMultiSelect: false,
-      question: "Is there a personal or family history of diffuse gastric cancer?",
+      question: "Does the patient have a personal or family history of diffuse gastric cancer?",
       choices: [
         {
           value: "Yes",
@@ -340,12 +420,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 21
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "21",
       isMultiSelect: false,
-      question: "Do you have a family history of cancer through third degree relatives?",
+      question: "Does the patient have a family history of cancer through third degree relatives?",
       choices: [
         {
           value: "Yes",
@@ -355,12 +439,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "22",
       isMultiSelect: true,
-      question: "Which isMultiSelect of cancer(s) dID they have?",
+      question: "Which cancer(s) were the relatives diagnosed with?",
       choices: [
         {
           value: "Ovarian",
@@ -388,7 +476,15 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Low grade prostate",
-          nextQuestion: 23 // this track doesn't make much sense
+          nextQuestion: 23
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
         }
       ]
     },
@@ -405,12 +501,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 24
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "24",
       isMultiSelect: false,
-      question: "DID anyone else have breast cancer?", // this is vauge wording
+      question: "Were any of the patient's other relatives diagnosed with cancer?",
       choices: [
         {
           value: "Yes",
@@ -420,12 +520,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "25",
       isMultiSelect: false,
-      question: "Were they 50 or younger?",
+      question: "Was the relative with female breast cancer diagnosed when they were under the age of 51?",
       choices: [
         {
           value: "Yes",
@@ -435,12 +539,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 26
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "26",
       isMultiSelect: false,
-      question: "What is the maximum number of breast cancer diagnoses a relative had?", // check wording
+      question: "What is the greatest number of breast cancer diagnoses a relative had?",
       choices: [
         {
           value: "One",
@@ -450,12 +558,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "Two or more",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "27",
       isMultiSelect: false,
-      question: "Did anyone in the family have prostate cancer?", // whose family?
+      question: "Has anyone in the patient's family been diagnosed with prostate cancer?",
       choices: [
         {
           value: "Yes",
@@ -465,12 +577,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 28
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "28",
       isMultiSelect: false,
-      question: "Was there any other cancer through a third degree relative?", // patient or relative who had prostate?
+      question: "Were there any other cancer diagnoses through one or more of the patient's third degree relatives?",
       choices: [
         {
           value: "Yes",
@@ -480,6 +596,10 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
@@ -499,12 +619,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "Low-grade",
           nextQuestion: 30
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "30",
       isMultiSelect: false,
-      question: "Does the patient have a history of any of the following cancers? ADD BULLETS",
+      question: "Does the patient have a history of any of the following cancers? Colon, exocine pancreatic, gastric, melanoma, upper tract urothelial, glioblastoma, biliary track, small intestinal cancer, or male breast cancer",
       choices: [
         {
           value: "Yes",
@@ -514,6 +638,10 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: 31
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
@@ -529,12 +657,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "32",
       isMultiSelect: false,
-      question: "Did any third degree relatives have cancer",
+      question: "Were any of the patient's third degree relatives diagnosed with cancer?",
       choices: [
         {
           value: "Yes",
@@ -544,12 +676,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "33",
       isMultiSelect: true,
-      question: "Which cancer(s) did the third degree relative have?",
+      question: "Which cancer(s) were the third degree relatives diagnosed with?",
       choices: [
         {
           value: "Ovarian",
@@ -575,12 +711,20 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "Colon, endometrial, gastric, upper tract urothelial, glioblastoma, biliary track, or small intenstine",
           nextQuestion: 37
         },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "34",
       isMultiSelect: false,
-      question: "How many third degree relatives had breast cancer?",
+      question: "How many of the patient's third degree relatives had breast cancer?",
       choices: [
         {
           value: "One",
@@ -590,6 +734,10 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "Two or more",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
@@ -598,19 +746,23 @@ export const PERSONAL_HISTORY_SCHEMA = {
       question: "How old was the third degree relative?",
       choices: [
         {
-          value: "Older than 50",
+          value: "51 or older",
           nextQuestion: 36
         },
         {
-          value: "50 or younger",
+          value: "Under the age of 51",
           nextQuestion: Outcome.MEETS_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "36",
       isMultiSelect: false,
-      question: "DID any other relative have prostate cancer?",
+      question: "Were any other relatives diagnosed with prostate cancer?",
       choices: [
         {
           value: "Yes",
@@ -620,12 +772,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
       ID: "37",
       isMultiSelect: false,
-      question: "Were there three or more relatives that had ...? ADD BULLETS",
+      question: "Were three or more of the patient's relatives diagnosed with colon, endometrial, gastric, upper tract urothelial, glioblastoma, biliary track, or small intestinal cancer?",
       choices: [
         {
           value: "Yes",
@@ -635,12 +791,16 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
     {
-      ID: "39",
+      ID: "38",
       isMultiSelect: false,
-      question: "Were there first or second degree relatives that had ...? ADD BULLETS",
+      question: "Were they first or second degree relatives?",
       choices: [
         {
           value: "Yes",
@@ -650,6 +810,10 @@ export const PERSONAL_HISTORY_SCHEMA = {
           value: "No",
           nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
       ]
     },
   ]

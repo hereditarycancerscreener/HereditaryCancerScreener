@@ -1,30 +1,32 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: 20,
+    safeBackground: {
+      display: 'flex',
+      alignItems: 'center'
+    },
+    disclaimerTitle: {
+      fontSize: 23,
+      color: '#333',
+      textAlign: 'center',
+      marginTop: 20,
+      marginBottom: 20
     },
     disclaimerText: {
-      fontSize: 18,
-      color: '#333', // Replace with your color theme
-      textAlign: 'center',
-      marginBottom: 20, // Adjust as needed
+      fontSize: 14.5,
+      color: '#333',
+      marginLeft: 30,
+      marginRight: 30
     },
     beginButton: {
-      backgroundColor: '#400090', // Replace with your button color
-      paddingVertical: 10,
-      paddingHorizontal: 20,
-      borderRadius: 20,
-      borderWidth: 0.75,
-      borderColor: "#400090", // Replace with your border color
+      backgroundColor: '#A11CB5',
+      paddingVertical: 9,
+      paddingHorizontal: 25,
+      borderRadius: 20
     },
     beginButtonText: {
-      fontSize: 25,
-      color: '#FFF', // Replace with your text color
-      fontFamily: 'Sinhala Sangam MN', // Replace with your font if needed
+      fontSize: 20,
+      color: '#fff',
       textAlign: 'center',
     },
   });

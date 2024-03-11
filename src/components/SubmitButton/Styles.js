@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     submitButton: {
-      backgroundColor: '#008080', // A different color for distinction
+      backgroundColor: '#A11CB5', // A different color for distinction
       paddingVertical: 12, // Slightly larger padding
       paddingHorizontal: 25,
       borderRadius: 25, // More rounded corners

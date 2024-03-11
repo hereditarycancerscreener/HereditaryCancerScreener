@@ -1,7 +1,8 @@
 export enum Outcome {
-    MEETS_CRITERIA = 'You meet the criteria for genetic testing',
-    DOES_NOT_MEET_CRITERIA = 'You do not meet the criteria for genetic testing',
-    SPEAK_TO_GENETIC_COUNSELOR = 'Please speak to a genetic counselor for more information',
+    MEETS_CRITERIA = 'Your patient meets NCCN criteria for genetic testing and counseling.',
+    DOES_NOT_MEET_CRITERIA = 'Your patient does not meet NCCN criteria for genetic testing and counseling.',
+    SPEAK_TO_GENETIC_COUNSELOR = 'Please speak to a genetic counselor for more information.',
+    INCONCLUSIVE = 'Your patient\'s eligibility for genetic testing and counseling based on NCCN criteria could not be determined.'
 };
 
 export const FAMILY_TRACK = "FAMILY_TRACK";

@@ -3,31 +3,26 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     safeBackground: {
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginTop: '40%'
     },
-    logo: {
-      marginTop: 100,
-      margin: 40,
-      width: 205,
-      height: 200
-    },
-    logInInputsContainer: {
+    registerInputsContainer: {
       display: 'flex',
       alignItems: 'center',
       marginBottom: 20,
       width: '100%'
     },
-    logInInputContainer: {
-      width: '45%',
-      borderColor: '#850998',
+    registerInputContainer: {
+      width: '58%',
+      borderColor: "#850998",
       borderBottomWidth: 0.7
     },
-    logInInputText: {
+    registerInputText: {
       marginBottom: -5,
       margin: 5,
       fontSize: 15
     },
-    logInButton: {
+    registerButton: {
       display: 'flex',
       alignItems: 'center',
       marginTop: 20,
@@ -36,21 +31,18 @@ export const styles = StyleSheet.create({
       paddingBottom: 10,
       width: '40%',
       borderRadius: 20,
-      // backgroundColor: "#94308a" // from logo
-      // backgroundColor: '#A323B6' // too bright?
-      backgroundColor: '#A11CB5'
+      backgroundColor: "#A11CB5" 
     },
-    logInButtonText: {
+    registerButtonText: {
       textAlign: 'center',
-      color: '#fff',
+      color: "#fff",
       fontSize: 16
     },
-    registrationTextContainer: {
+    logInTextContainer: {
       flexDirection: 'row'
-      // justifyContent: 'space-between'
     },
-    registerText: {
-      color: '#858585',
+    logInText: {
+      color: "#858585",
       fontSize: 15
     }
   });

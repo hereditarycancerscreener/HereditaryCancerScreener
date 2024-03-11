@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     StyleSheet,
     Text,
@@ -13,13 +13,15 @@ import SubmitButton from '../SubmitButton/SubmitButton';
 
 
 const AnswerChoices = ({ questionObj, handleAnswerSelection, handleMultiAnswerSelection, handleMultiSubmit }) => {
+    const [buttonPressed, setButtonPressed] = useState(false);
+
     return (
         <View style={styles.responseButtonContainer}>
             {
                 questionObj.isMultiSelect === false ? (
                     questionObj.choices.map((answer, key) => (
-                        <TouchableOpacity style={styles.responseButton} key={key} onPress={() => handleAnswerSelection(answer)}>
-                            <Text style={styles.responseButtonText}>{answer.value}</Text>
+                        <TouchableOpacity style={buttonPressed ? styles.responseButtonActive : styles.responseButton} key={key} onPress={() => handleAnswerSelection(answer)}>
+                            <Text style={buttonPressed ? styles.responseButtonTextActive : styles.responseButtonText}>{answer.value}</Text>
                         </TouchableOpacity>
                     ))
                 ) : (
@@ -42,6 +44,5 @@ const AnswerChoices = ({ questionObj, handleAnswerSelection, handleMultiAnswerSe
         </View>
     )
 }
-
 
 export default AnswerChoices;

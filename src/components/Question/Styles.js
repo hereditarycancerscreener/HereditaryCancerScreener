@@ -2,15 +2,14 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     questionContainer: {
-
+      
     },
     questionText: {
-      marginTop: 20,
       marginLeft: 50,
       marginRight: 50,
       textAlign: 'center',
-      fontSize: 25,
-      color: "#400090",
-      fontFamily: "Sinhala Sangam MN",
+      fontSize: 27,
+      color: "#000",
+      // fontFamily: "Sinhala Sangam MN",
     },
 });
