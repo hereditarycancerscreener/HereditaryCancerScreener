@@ -3,22 +3,32 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
       alignItems: 'center',
-      padding: 20
+    },
+    outcomeTextTitle: {
+      fontSize: 30,
+      color: '#333',
+      textAlign: 'center',
+      marginTop: 50,
     },
     outcomeText: {
       fontSize: 18,
       color: '#333',
-      textAlign: 'center',
-      marginBottom: 20
+      margin: 30
+    },
+    outcomeTextBolded: {
+      fontWeight: 'bold'
+    },
+    image: {
+      width: 300,
+      height: 250
     },
     startOverButton: {
-      backgroundColor: '#A11CB5',
+      backgroundColor: '#951CBA',
       paddingVertical: 9,
       paddingHorizontal: 25,
       borderRadius: 20,
-      margin: 20
+      margin: 30
     },
     startOverButtonText: {
       fontSize: 20,

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-    StyleSheet,
     Text,
     TouchableOpacity,
     View,
@@ -9,19 +8,37 @@ import {
 import CheckBox from '@react-native-community/checkbox';
 
 import { styles } from './Styles';
-import SubmitButton from '../SubmitButton/SubmitButton';
 
+const AnswerChoices = ({ questionObj, selectedAnswers, setSelectedAnswers, handleAnswerSelection }) => {
+    // used to control css on single select
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-const AnswerChoices = ({ questionObj, handleAnswerSelection, handleMultiAnswerSelection, handleMultiSubmit }) => {
-    const [buttonPressed, setButtonPressed] = useState(false);
+    const handlePressIn = (answer) => {
+        handleAnswerSelection(answer)
+        setSelectedAnswer(answer)
+    }
+
+    const handleMultiSelect = (value, answer) => {
+        if (value) {
+            setSelectedAnswers([...selectedAnswers, answer]);
+        } else {
+            setSelectedAnswers(selectedAnswers.filter((selectedOption) => selectedOption !== answer));
+        }
+    };
+    
 
     return (
         <View style={styles.responseButtonContainer}>
             {
                 questionObj.isMultiSelect === false ? (
                     questionObj.choices.map((answer, key) => (
-                        <TouchableOpacity style={buttonPressed ? styles.responseButtonActive : styles.responseButton} key={key} onPress={() => handleAnswerSelection(answer)}>
-                            <Text style={buttonPressed ? styles.responseButtonTextActive : styles.responseButtonText}>{answer.value}</Text>
+                        <TouchableOpacity 
+                            style={selectedAnswer === answer ? styles.responseButtonActive : styles.responseButton} 
+                            key={key}
+                            onPressIn={() => handlePressIn(answer)}
+                            activeOpacity={1}
+                        >
+                            <Text style={selectedAnswer === answer ? styles.responseButtonTextActive : styles.responseButtonText}>{answer.value}</Text>
                         </TouchableOpacity>
                     ))
                 ) : (
@@ -30,14 +47,19 @@ const AnswerChoices = ({ questionObj, handleAnswerSelection, handleMultiAnswerSe
                             <View key={key} style={styles.checkboxContainer}>
                                 <CheckBox
                                     value={answer.selected}
-                                    onValueChange={() => handleMultiAnswerSelection(answer)}
+                                    onValueChange={(value) => handleMultiSelect(value, answer)}
+                                    boxType='square'
+                                    onTintColor='#858585'
+                                    onCheckColor='#858585'
+                                    animationDuration={0.3}
+                                    onAnimationType='fade'
+                                    offAnimationType='fade'
                                 />
-                                <Text style={styles.checkboxLabel} onPress={() => handleMultiAnswerSelection(answer)}>
+                                <Text style={styles.checkboxLabel} onPress={() => setSelectedAnswers(answer)}>
                                     {answer.value}
                                 </Text>
                             </View>
                         ))}
-                        <SubmitButton style={styles.submitButton} onSubmit={handleMultiSubmit} />
                     </View>
                 )
             }

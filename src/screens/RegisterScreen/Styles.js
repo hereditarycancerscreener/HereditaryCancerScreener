@@ -4,7 +4,11 @@ export const styles = StyleSheet.create({
     safeBackground: {
       display: 'flex',
       alignItems: 'center',
-      marginTop: '40%'
+      marginTop: '20%'
+    },
+    registerTitle: {
+      margin: 20,
+      fontSize: 25
     },
     registerInputsContainer: {
       display: 'flex',
@@ -13,12 +17,12 @@ export const styles = StyleSheet.create({
       width: '100%'
     },
     registerInputContainer: {
+      marginTop: 10,
       width: '58%',
       borderColor: "#850998",
       borderBottomWidth: 0.7
     },
     registerInputText: {
-      marginBottom: -5,
       margin: 5,
       fontSize: 15
     },
@@ -31,7 +35,7 @@ export const styles = StyleSheet.create({
       paddingBottom: 10,
       width: '40%',
       borderRadius: 20,
-      backgroundColor: "#A11CB5" 
+      backgroundColor: "#951CBA" 
     },
     registerButtonText: {
       textAlign: 'center',

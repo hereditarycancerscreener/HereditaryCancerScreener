@@ -6,8 +6,8 @@ export const styles = StyleSheet.create({
       alignItems: 'center'
     },
     logo: {
-      marginTop: 100,
-      margin: 40,
+      marginTop: 80,
+      margin: 30,
       width: 205,
       height: 200
     },
@@ -19,12 +19,11 @@ export const styles = StyleSheet.create({
     },
     logInInputContainer: {
       width: '45%',
-      borderColor: '#850998',
+      borderColor: '#951CBA',
       borderBottomWidth: 0.7
     },
     logInInputText: {
-      marginBottom: -5,
-      margin: 5,
+      margin: 10,
       fontSize: 15
     },
     logInButton: {
@@ -38,7 +37,7 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       // backgroundColor: "#94308a" // from logo
       // backgroundColor: '#A323B6' // too bright?
-      backgroundColor: '#A11CB5'
+      backgroundColor: '#951CBA'
     },
     logInButtonText: {
       textAlign: 'center',

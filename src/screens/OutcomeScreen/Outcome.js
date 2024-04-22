@@ -1,13 +1,10 @@
 import React from 'react';
 import {
+  Image,
   SafeAreaView,
   Text,
   TouchableOpacity,
 } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck'
-import { faCircleXmark } from '@fortawesome/free-regular-svg-icons/faCircleXmark'
-import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons/faTriangleExclamation';
 
 import { Outcome as OutcomeConstant } from '../../constants/Outcomes';
 import { Screen } from '../../constants/Screens';
@@ -17,20 +14,45 @@ const Outcome = ({ route, navigation }) => {
   const { outcome } = route.params;
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.outcomeText}>{outcome}</Text>
       {outcome === OutcomeConstant.DOES_NOT_MEET_CRITERIA &&
-        <FontAwesomeIcon icon={faCircleCheck} color={"#4BD447"} size={140}/>
+        <>
+          <Text style={styles.outcomeTextTitle}>
+            You're good to go!
+          </Text>
+          <Text style={styles.outcomeText}>
+            Your patient<Text style={styles.outcomeTextBolded}> does not meet </Text>NCCN criteria for genetic counseling and testing based on the information provided.
+          </Text>
+          <Image style={styles.image} source={require('../../images/doesNotMeetCriteria.png')}/>
+        </>
       }
       {outcome === OutcomeConstant.MEETS_CRITERIA &&
-        <FontAwesomeIcon icon={faCircleXmark} color={"#E70D0D"} size={140}/>
+        <>
+          <Text style={styles.outcomeTextTitle}>
+            Let's look a little deeper
+          </Text>
+          <Text style={styles.outcomeText}>Your patient<Text style={styles.outcomeTextBolded}> meets </Text>NCCN criteria for genetic counseling and testing based on the information provided.</Text>
+          <Image style={styles.image} source={require('../../images/meetsCriteria.png')}/>
+        </>
       }
       {outcome === OutcomeConstant.SPEAK_TO_GENETIC_COUNSELOR &&
-        <FontAwesomeIcon icon={faTriangleExclamation} color={"#EBEB00"} size={140}/>
+        <>
+          <Text style={styles.outcomeTextTitle}>
+            Hmmm...
+          </Text>
+          <Text style={styles.outcomeText}>Please speak to a genetic counselor for more information.</Text>
+          <Image style={styles.image} source={require('../../images/inconclusive.png')}/>
+        </>
       }
       {outcome === OutcomeConstant.INCONCLUSIVE &&
-        <FontAwesomeIcon icon={faTriangleExclamation} color={"#EBEB00"} size={140}/>
+        <>
+          <Text style={styles.outcomeTextTitle}>
+            Hmmm...
+          </Text>
+          <Text style={styles.outcomeText}>Your patient's eligibility for genetic counseling and testing based on NCCN criteria could not be determined from the information provided.</Text>
+          <Image style={styles.image} source={require('../../images/inconclusive.png')}/>
+        </>
       }
-      <TouchableOpacity style={styles.startOverButton} onPress={() => navigation.replace(Screen.DISCLAIMER_SCREEN)}>
+      <TouchableOpacity style={styles.startOverButton} onPress={() => navigation.replace(Screen.LANDING_SCREEN)}>
         <Text style={styles.startOverButtonText}>Start Over</Text>
       </TouchableOpacity>
     </SafeAreaView>

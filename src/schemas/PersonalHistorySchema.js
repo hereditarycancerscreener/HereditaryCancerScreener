@@ -55,7 +55,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
           nextQuestion: Outcome.MEETS_CRITERIA
         },
         {
-          value: "Colon",
+          value: "Colon or other Lynch Cancer", //: endometrial, gastric, pancreatic, urothelial, brain (usually glioblastoma), biliary tract, and small intestine, as well as sebaceous adenomas, sebaceous carcinomas, and keratoacanthomas as seen in Muir-Torre syndrome.",
           nextQuestion: 4,
         },
         {
@@ -110,7 +110,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "50 or older",
-          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
+          nextQuestion: 9
         },
         {
           value: "Under the age of 50",
@@ -220,7 +220,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
     {
       ID: "10",
       isMultiSelect: false,
-      question: "Was it one of the following cancers? E colon, Gastric, Pancreas, Small Bowel, Biliary Tract, Brain, Bladder/Urothelial, and/or Small intestine",
+      question: "Was it one of the following cancers? colorectal, endometrial, gastric, ovarian, pancreatic, urothelial, brain (usually glioblastoma), biliary tract, and small intestine, as well as sebaceous adenomas, sebaceous carcinomas, and keratoacanthomas as seen in Muir-Torre syndrome",
       choices: [
         {
           value: "Yes",
@@ -228,7 +228,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: FAMILY_TRACK
+          nextQuestion: 11
         },
         {
           value: "I don't know",
@@ -697,7 +697,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Prostate",
-          nnextQuestion: Outcome.MEETS_CRITERIA
+          nnextQuestion: 34
         },
         {
           value: "Male breast",
@@ -705,11 +705,11 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Female breast",
-          nextQuestion: 34
+          nextQuestion: 35
         },
         {
           value: "Colon, endometrial, gastric, upper tract urothelial, glioblastoma, biliary track, or small intenstine",
-          nextQuestion: 37
+          nextQuestion: 38
         },
         {
           value: "Other",
@@ -724,11 +724,11 @@ export const PERSONAL_HISTORY_SCHEMA = {
     {
       ID: "34",
       isMultiSelect: false,
-      question: "How many of the patient's third degree relatives had breast cancer?",
+      question: "How many of the patient's third degree relatives had prostate cancer?",
       choices: [
         {
           value: "One",
-          nextQuestion: 35
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
         },
         {
           value: "Two or more",
@@ -743,11 +743,30 @@ export const PERSONAL_HISTORY_SCHEMA = {
     {
       ID: "35",
       isMultiSelect: false,
+      question: "How many of the patient's third degree relatives had breast cancer?",
+      choices: [
+        {
+          value: "One",
+          nextQuestion: 36
+        },
+        {
+          value: "Two or more",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "36",
+      isMultiSelect: false,
       question: "How old was the third degree relative?",
       choices: [
         {
           value: "51 or older",
-          nextQuestion: 36
+          nextQuestion: 37
         },
         {
           value: "Under the age of 51",
@@ -760,7 +779,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "36",
+      ID: "37",
       isMultiSelect: false,
       question: "Were any other relatives diagnosed with prostate cancer?",
       choices: [
@@ -779,13 +798,13 @@ export const PERSONAL_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "37",
+      ID: "38",
       isMultiSelect: false,
       question: "Were three or more of the patient's relatives diagnosed with colon, endometrial, gastric, upper tract urothelial, glioblastoma, biliary track, or small intestinal cancer?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: 38
+          nextQuestion: 39
         },
         {
           value: "No",
@@ -798,7 +817,26 @@ export const PERSONAL_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "38",
+      ID: "39",
+      isMultiSelect: false,
+      question: "Were there three or more relatives?",
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: 40
+        },
+        {
+          value: "No",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "40",
       isMultiSelect: false,
       question: "Were they first or second degree relatives?",
       choices: [

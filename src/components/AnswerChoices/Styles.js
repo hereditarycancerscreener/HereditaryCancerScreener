@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     responseButtonContainer: {
-        marginTop: 60,
+        // marginTop: 40,
         alignItems: 'center'
     },
     responseButton: {
@@ -12,32 +12,27 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 20,
         borderWidth: 0.75,
         borderRadius: 50,
-        borderColor: "#A11CB5",
+        borderColor: "#951CBA",
         width: '80%'
     },
     responseButtonActive: {
         marginBottom: 10,
         paddingVertical: 8,
         paddingHorizontal: 20,
-        borderWidth: 0.75,
         borderRadius: 20,
-        backgroundColor: "#A11CB5",
+        backgroundColor: "#951CBA",
         width: '80%'
     },
     responseButtonText: {
         fontFamily: "Sora",
-        fontSize: 20,
-        color: '#A11CB5',
+        fontSize: 18,
+        color: '#951CBA',
         textAlign: 'center'
     },
     responseButtonTextActive: {
-        fontSize: 25,
+        fontSize: 18,
         color: '#fff',
         textAlign: 'center'
-    },
-    submitButton: {
-        marginTop: 20,
-        width: '80%'
     },
     checkboxContainer: {
         flexDirection: 'row',
@@ -45,8 +40,7 @@ export const styles = StyleSheet.create({
         marginBottom: 10
     },
     checkboxLabel: {
-        fontSize: 25,
-        color: '#400090',
+        fontSize: 18,
         marginLeft: 8
     }
 });

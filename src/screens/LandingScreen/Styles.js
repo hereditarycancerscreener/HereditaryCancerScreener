@@ -3,30 +3,39 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     safeBackground: {
       display: 'flex',
-      alignItems: 'center'
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    disclaimerTitle: {
+    accountButton: {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      margin: 25,
+    },
+    landingTitle: {
       fontSize: 23,
       color: '#333',
       textAlign: 'center',
-      marginTop: 50,
-      marginBottom: 20
+      marginTop: 60,
+      marginBottom: 25
     },
-    disclaimerText: {
+    logo: {
+      width: 155,
+      height: 150
+    },
+    landingText: {
       fontSize: 14.5,
       color: '#333',
-      marginLeft: 30,
-      marginRight: 30
+      margin: 25,
+      textAlign: 'center'
     },
-    agreeButton: {
+    startButton: {
       backgroundColor: '#951CBA',
       paddingVertical: 9,
-      marginBottom: 30,
       width: '70%',
-      // paddingHorizontal: 15,
       borderRadius: 20
     },
-    agreeButtonText: {
+    startButtonText: {
       fontSize: 20,
       color: '#fff',
       textAlign: 'center',
