@@ -19,7 +19,7 @@ const Survey = ({ navigation }) => {
   * Controls which survey json object is being traversed
   * Survey always begins with Personal History questions
   */
-  const [surveySchema, setSurveySchema]  = useState(PERSONAL_HISTORY_SCHEMA) // DO WE NEED
+  const [surveySchema, setSurveySchema]  = useState(PERSONAL_HISTORY_SCHEMA) // DEPRECATED
 
   /*
   * Controls the question object the user is currently on, including question and answer choices
@@ -54,7 +54,7 @@ const Survey = ({ navigation }) => {
       throw new Error("selectedAnswer in handleAnswerSelection is null")
     }
 
-    console.log("Handling answer selection... ", selectedAnswer)
+    console.log("Handling answer selection...", selectedAnswer)
     setBreadcrumbs((prevState) => [...prevState,
       {
         ID: questionObj.ID,
@@ -73,7 +73,7 @@ const Survey = ({ navigation }) => {
       throw new Error("selectedAnswers in handleMultiAnswerSelection is empty")
     }
 
-    console.log("Handling multi answer selection... ", selectedAnswers)
+    console.log("Handling multi answer selection...", selectedAnswers)
     setBreadcrumbs((prevState) => [...prevState,
       {
         ID: questionObj.ID,
@@ -92,13 +92,13 @@ const Survey = ({ navigation }) => {
       throw new Error("nextQuestion is handleNextQuestion null")
     }
 
-    console.log("Handling next question... ", nextQuestion)
+    console.log("Handling next question...", nextQuestion)
     if (Object.values(Outcome).includes(nextQuestion)) {
       updateOutcome(nextQuestion)
-    } else if (nextQuestion === FAMILY_TRACK) {
-      console.log("Switching to family history schema...")
-      updateQuestionQueue(FAMILY_HISTORY_SCHEMA.questions[0])
-      setSurveySchema(FAMILY_HISTORY_SCHEMA)
+    // } else if (nextQuestion === FAMILY_TRACK) { // DEPRECATED
+    //   console.log("Switching to family history schema...")
+    //   updateQuestionQueue(FAMILY_HISTORY_SCHEMA.questions[0])
+    //   setSurveySchema(FAMILY_HISTORY_SCHEMA)
     } else if (Number.isInteger(nextQuestion)) {
       updateQuestionQueue(nextQuestion)
     } else {
@@ -113,10 +113,10 @@ const Survey = ({ navigation }) => {
   }
 
   const updateQuestionQueue = (nextQuestion) => {
-    if (nextQuestion === null) {
+    if (nextQuestion === null || nextQuestion === undefined) {
       throw new Error("nextQuestion in updateQuestionQueue is null")
     }
-    console.log("Updating question queue... ", nextQuestion)
+    console.log("Updating question queue...", nextQuestion)
     setQuestionQueue((prevQueue) => [...prevQueue, nextQuestion])
   }
 
@@ -125,6 +125,10 @@ const Survey = ({ navigation }) => {
       console.log("Updating Question...", prevQueue);
       const nextQuestion = prevQueue.shift();
       if (nextQuestion !== undefined) {
+        console.log("here")
+        console.log(nextQuestion)
+        console.log(surveySchema)
+        console.log(surveySchema.questions[nextQuestion])
         setQuestionObj(surveySchema.questions[nextQuestion]);
       }
 
@@ -146,6 +150,7 @@ const Survey = ({ navigation }) => {
   }
 
   useEffect(() => {
+    console.log("hello")
     if (questionQueue && questionQueue.length > 0) {
       updateQuestion()
     } else if (questionQueue && questionQueue.length === 0) {

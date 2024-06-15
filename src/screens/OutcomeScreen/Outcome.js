@@ -17,7 +17,7 @@ const Outcome = ({ route, navigation }) => {
       {outcome === OutcomeConstant.DOES_NOT_MEET_CRITERIA &&
         <>
           <Text style={styles.outcomeTextTitle}>
-            You're good to go!
+            Ineligible
           </Text>
           <Text style={styles.outcomeText}>
             Your patient<Text style={styles.outcomeTextBolded}> does not meet </Text>NCCN criteria for genetic counseling and testing based on the information provided.
@@ -28,7 +28,7 @@ const Outcome = ({ route, navigation }) => {
       {outcome === OutcomeConstant.MEETS_CRITERIA &&
         <>
           <Text style={styles.outcomeTextTitle}>
-            Let's look a little deeper
+            Eligible
           </Text>
           <Text style={styles.outcomeText}>Your patient<Text style={styles.outcomeTextBolded}> meets </Text>NCCN criteria for genetic counseling and testing based on the information provided.</Text>
           <Image style={styles.image} source={require('../../images/meetsCriteria.png')}/>

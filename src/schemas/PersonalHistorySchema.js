@@ -4,7 +4,7 @@ import { FAMILY_TRACK } from '../constants/Outcomes';
 export const PERSONAL_HISTORY_SCHEMA = {
   questions: [
     {
-      ID: 0,
+      ID: "0",
       isMultiSelect: false,
       question: "Is the patient of Ashkenazi Jewish ancestry with at least one of four Ashkenazi Jewish grandparents?",
       choices: [
@@ -23,7 +23,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: 1,
+      ID: "1",
       isMultiSelect: false,
       question: "Does the patient have a personal history of cancer?",
       choices: [
@@ -42,7 +42,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: 2,
+      ID: "2",
       isMultiSelect: true,
       question: "What kind of cancer(s) was the patient diagnosed with?",
       choices: [
@@ -91,7 +91,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: FAMILY_TRACK
+          nextQuestion: 41
         },
         {
           value: "No",
@@ -319,7 +319,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: FAMILY_TRACK
+          nextQuestion: 41
         },
         {
           value: "No",
@@ -460,7 +460,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
         },
         {
           value: "Colon",
-          nextQuestion: FAMILY_TRACK
+          nextQuestion: 41
         },
         {
           value: "Male breast cancer",
@@ -590,7 +590,7 @@ export const PERSONAL_HISTORY_SCHEMA = {
       choices: [
         {
           value: "Yes",
-          nextQuestion: FAMILY_TRACK
+          nextQuestion: 41
         },
         {
           value: "No",
@@ -843,6 +843,763 @@ export const PERSONAL_HISTORY_SCHEMA = {
         {
           value: "Yes",
           nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+
+    /*
+    * Personal history schema
+    */
+    {
+      ID: "41",
+      isMultiSelect: true,
+      question: "Which cancer(s) was the patient's relative diagnosed with?",
+      choices: [
+        {
+          value: "Ovarian",
+          nextQuestion: 42
+        },
+        {
+          value: "Pancreatic",
+          nextQuestion: 44
+        },
+        {
+          value: "Endometrial",
+          nextQuestion: 47
+        },
+        {
+          value: "Colon",
+          nextQuestion: 47
+        },
+        {
+          value: "Renal",
+          nextQuestion: 55
+        },
+        {
+          value: "Prostate",
+          nextQuestion: 58
+        },
+        {
+          value: "Male breast",
+          nextQuestion: 69
+        },
+        {
+          value: "Female breast",
+          nextQuestion: 70
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: 42,
+      isMultiSelect: false,
+      question: "What is the patient's relation to the relative(s) diagnosed with ovarian cancer?", // can they go down multiple? should we word to have closest relative?
+      choices: [
+        {
+          value: "First degree",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Second degree",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Third degree",
+          nextQuestion: 43
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: 43,
+      isMultiSelect: false,
+      question: "Is the third degree relative on the patient's maternal or paternal side?",
+      choices: [
+        {
+          value: "Maternal",
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
+        },
+        {
+          value: "Paternal through two males",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Paternal through fewer than two males",
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "44",
+      isMultiSelect: false,
+      question: "What is the patient's relation to the relative(s) diagnosed with pancreatic cancer?",
+      choices: [
+        {
+          value: "First degree",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Second degree",
+          nextQuestion: 45
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "45",
+      isMultiSelect: false,
+      question: "How many of the patient's second degree relatives were diagnosed with pancreatic cancer?",
+      choices: [
+        {
+          value: "3 or more",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Fewer than 3",
+          nextQuestion: 46
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "46",
+      isMultiSelect: false,
+      question: "Were any of the diagnoses under the age of 50?",
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "47",
+      isMultiSelect: false,
+      question: "What is the patient's relation to the relative(s) diagnosed with cancer?",
+      choices: [
+        {
+          value: "First degree",
+          nextQuestion: 48
+        },
+        {
+          value: "Second degree",
+          nextQuestion: 53
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "48",
+      isMultiSelect: false,
+      question: "What age was the relative diagnosed at?",
+      choices: [
+        {
+          value: "50 or older",
+          nextQuestion: 49
+        },
+        {
+          value: "Under the age of 50",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "49",
+      isMultiSelect: false,
+      question: "Was this relative diagnosed with another lynch syndrome cancer?",
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 50
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "50",
+      isMultiSelect: false,
+      question: "Were there other diagnoses of lynch syndrome cancers through one of the patient's second degree relatives?",
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: 51
+        },
+        {
+          value: "No",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "51",
+      isMultiSelect: false,
+      question: "How many diagnoses were there?", 
+      choices: [
+        {
+          value: "One",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "Two",
+          nextQuestion: 52
+        },
+        {
+          value: "Three or more",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "52",
+      isMultiSelect: false,
+      question: "Was at least one diagnosis under the age of 50?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "53",
+      isMultiSelect: false,
+      question: "How many diagnoses have there been (including all Lynch)?", //reword
+      choices: [
+        {
+          value: "One",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "Two",
+          nextQuestion: 54
+        },
+        {
+          value: "Three or more",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "54",
+      isMultiSelect: false,
+      question: "What age were they diagnosed at?", 
+      choices: [
+        {
+          value: "50 or older",
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR // PREMM
+        },
+        {
+          value: "Under the age of 50",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "55",
+      isMultiSelect: false,
+      question: "How many renal cancer diagnoses are in the patient's family?", 
+      choices: [
+        {
+          value: "One",
+          nextQuestion: 56
+        },
+        {
+          value: "Two or more",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "56",
+      isMultiSelect: false,
+      question: "How old was the relative?", 
+      choices: [
+        {
+          value: "47 or older",
+          nextQuestion: 57
+        },
+        {
+          value: "Under the age of 47",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "57",
+      isMultiSelect: false,
+      question: "Did the relative's tumor have the the following histologic characteristics? Multifocal papillary histology, HLRCC-associated RCC, RCC with fumarate hydratase (FH) deficiency or other histologic features associated with HLRCC, Birt-Hogg-Dubé syndrome (BHDS)-related histology (multiple chromophobe, oncocytoma, or oncocytic hybrid, Angiomyolipomas of the kidney and one additional tuberous sclerosis complex (TSC) criterion in the same person, or Succinate dehydrogenase (SDH)-deficient RCC histologye", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
+        }
+      ]
+    },
+    {
+      ID: "58",
+      isMultiSelect: false,
+      question: "What is the patient's relation to the relative(s) diagnosed with prostate cancer?", 
+      choices: [
+        {
+          value: "First degree",
+          nextQuestion: 59
+        },
+        {
+          value: "Second degree",
+          nextQuestion: 62
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "59",
+      isMultiSelect: false,
+      question: "Was the prostate cancer high grade, cribiform, or metastatic?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 60
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "60",
+      isMultiSelect: false,
+      question: "Was anyone else in the patient's family diagnosed with cancer?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: 61
+        },
+        {
+          value: "No",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "61",
+      isMultiSelect: false,
+      question: "Which cancer(s) was the patient's relative diagnosed with?", 
+      choices: [
+        {
+          value: "Breast",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Prostate",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Colon, Gastric, Small Bowel, Biliary Tract, Brain, Bladder/Urothelial, Small intestine, sebaceous adenomas, sebaceous carcinomas, and/or keratoacanthoma?",
+          nextQuestion: 57
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "62",
+      isMultiSelect: false,
+      question: "Does the patient have at least one close blood relative diagnosed with ovarian cancer?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 63
+        },
+        {
+          value: "I don't know",
+          nextQuestion: 63
+        }
+      ]
+    },
+    {
+      ID: "63",
+      isMultiSelect: false,
+      question: "Does the patient have at least one close blood relative diagnosed with pancreatic cancer?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 64
+        },
+        {
+          value: "I don't know",
+          nextQuestion: 64
+        }
+      ]
+    },
+    {
+      ID: "64",
+      isMultiSelect: false,
+      question: "Does the patient have at least one close blood relative diagnosed with male breast cancer?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 65
+        },
+        {
+          value: "I don't know",
+          nextQuestion: 65
+        }
+      ]
+    },
+    {
+      ID: "65",
+      isMultiSelect: false,
+      question: "Does the patient have at least one close blood relative diagnosed with female breast cancer under the age of 51?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 66
+        },
+        {
+          value: "I don't know",
+          nextQuestion: 67
+        }
+      ]
+    },
+    {
+      ID: "66",
+      isMultiSelect: false,
+      question: "Are there three diagnoses of breast cancer in the patient's second or third degree relatives?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 67
+        },
+        {
+          value: "I don't know",
+          nextQuestion: 67
+        }
+      ]
+    },
+    {
+      ID: "67",
+      isMultiSelect: false,
+      question: "Does the patient have at least one close blood relative diagnosed with metastatic, high, or very high risk prostate cancer?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 68
+        },
+        {
+          value: "I don't know",
+          nextQuestion: 68
+        }
+      ]
+    },
+    {
+      ID: "68",
+      isMultiSelect: false,
+      question: "Are there two or more additional diagnoses of breast cancer and prostate cancer in the patient's second or third degree relatives?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: Outcome.SPEAK_TO_GENETIC_COUNSELOR
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "69",
+      isMultiSelect: false,
+      question: "What is the patient's relation to the relative(s) diagnosed with male breast cancer?", 
+      choices: [
+        {
+          value: "First degree",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Second degree",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Third degree related through two male relatives",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "70",
+      isMultiSelect: false,
+      question: "What is the patient's relation to the relative(s) diagnosed with female breast cancer?", 
+      choices: [
+        {
+          value: "First degree",
+          nextQuestion: 71
+        },
+        {
+          value: "Second degree",
+          nextQuestion: 71
+        },
+        {
+          value: "Third degree paternal",
+          nextQuestion: 71
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "71",
+      isMultiSelect: false,
+      question: "What age was the relative(s) diagnosed at?", 
+      choices: [
+        {
+          value: "51 or older",
+          nextQuestion: 72
+        },
+        {
+          value: "Under the age of 51",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "Other",
+          nextQuestion: Outcome.DOES_NOT_MEET_CRITERIA
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "72",
+      isMultiSelect: false,
+      question: "Was it triple negative?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 73
+        },
+        {
+          value: "I don't know",
+          nextQuestion: 73
+        }
+      ]
+    },
+    {
+      ID: "73",
+      isMultiSelect: false,
+      question: "Are there 2 or more diagnoses of breast or prostate cancer on the same side of the family?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 74
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "74",
+      isMultiSelect: false,
+      question: "Are there other diagnoses of male breast, ovarian, or  pancreatic cancer on the same side of the family in a first or second degree relative?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: Outcome.MEETS_CRITERIA
+        },
+        {
+          value: "No",
+          nextQuestion: 75
+        },
+        {
+          value: "I don't know",
+          nextQuestion: Outcome.INCONCLUSIVE
+        }
+      ]
+    },
+    {
+      ID: "75",
+      isMultiSelect: false,
+      question: "Does the patient have other relatives with colon, gastric, small bowel, biliary tract, brain, bladder/urothelial, small intestine, sebaceous adenomas, sebaceous carcinomas, and/or keratoacanthoma cancer?", 
+      choices: [
+        {
+          value: "Yes",
+          nextQuestion: 57
         },
         {
           value: "No",

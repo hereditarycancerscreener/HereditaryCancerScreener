@@ -22,7 +22,7 @@ const NavButton = ({ questionObj, selectedAnswers, handleMultiAnswerSelection })
           <FontAwesomeIcon icon={faAngleLeft} color={"white"} size={30}/>
         </TouchableOpacity>
       }
-      {questionObj.isMultiSelect &&
+      {questionObj.isMultiSelect && selectedAnswers.length != 0 &&
         <TouchableOpacity style={styles.navButton} onPress={() => handleMultiAnswerSelection(selectedAnswers)}>
             <FontAwesomeIcon icon={faAngleRight} color={"white"} size={30}/>
         </TouchableOpacity>

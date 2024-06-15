@@ -1,43 +1,45 @@
 import { Outcome } from '../constants/Outcomes';
 
+// DEPREACTED, will need to track which track we're down
+// for screen headers
 export const FAMILY_HISTORY_SCHEMA = {
   questions: [
     {
-      ID: 0,
+      ID: "100",
       isMultiSelect: true,
       question: "Which cancer(s) was the patient's relative diagnosed with?",
       choices: [
         {
           value: "Ovarian",
-          nextQuestion: 1
+          nextQuestion: 101
         },
         {
           value: "Pancreatic",
-          nextQuestion: 3
+          nextQuestion: 103
         },
         {
           value: "Endometrial",
-          nextQuestion: 6
+          nextQuestion: 106
         },
         {
           value: "Colon",
-          nextQuestion: 6
+          nextQuestion: 106
         },
         {
           value: "Renal",
-          nextQuestion: 14
+          nextQuestion: 114
         },
         {
           value: "Prostate",
-          nextQuestion: 17
+          nextQuestion: 117
         },
         {
           value: "Male breast",
-          nextQuestion: 28
+          nextQuestion: 128
         },
         {
           value: "Female breast",
-          nextQuestion: 29
+          nextQuestion: 129
         },
         {
           value: "Other",
@@ -50,7 +52,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "1",
+      ID: "101",
       isMultiSelect: false,
       question: "What is the patient's relation to the relative(s) diagnosed with ovarian cancer?", // can they go down multiple? should we word to have closest relative?
       choices: [
@@ -64,7 +66,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Third degree",
-          nextQuestion: 2
+          nextQuestion: 102
         },
         {
           value: "Other",
@@ -77,7 +79,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "2",
+      ID: "102",
       isMultiSelect: false,
       question: "Is the third degree relative on the patient's maternal or paternal side?",
       choices: [
@@ -100,7 +102,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "3",
+      ID: "103",
       isMultiSelect: false,
       question: "What is the patient's relation to the relative(s) diagnosed with pancreatic cancer?",
       choices: [
@@ -110,7 +112,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Second degree",
-          nextQuestion: 4
+          nextQuestion: 104
         },
         {
           value: "Other",
@@ -123,7 +125,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "4",
+      ID: "104",
       isMultiSelect: false,
       question: "How many of the patient's second degree relatives were diagnosed with pancreatic cancer?",
       choices: [
@@ -133,7 +135,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Fewer than 3",
-          nextQuestion: 5
+          nextQuestion: 105
         },
         {
           value: "I don't know",
@@ -142,7 +144,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "5",
+      ID: "105",
       isMultiSelect: false,
       question: "Were any of the diagnoses under the age of 50?",
       choices: [
@@ -161,17 +163,17 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "6",
+      ID: "106",
       isMultiSelect: false,
       question: "What is the patient's relation to the relative(s) diagnosed with cancer?",
       choices: [
         {
           value: "First degree",
-          nextQuestion: 7
+          nextQuestion: 107
         },
         {
           value: "Second degree",
-          nextQuestion: 12
+          nextQuestion: 112
         },
         {
           value: "Other",
@@ -184,13 +186,13 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "7",
+      ID: "107",
       isMultiSelect: false,
       question: "What age was the relative diagnosed at?",
       choices: [
         {
           value: "50 or older",
-          nextQuestion: 8
+          nextQuestion: 108
         },
         {
           value: "Under the age of 50",
@@ -203,7 +205,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "8",
+      ID: "108",
       isMultiSelect: false,
       question: "Was this relative diagnosed with another lynch syndrome cancer?",
       choices: [
@@ -213,7 +215,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 9
+          nextQuestion: 109
         },
         {
           value: "I don't know",
@@ -222,13 +224,13 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "9",
+      ID: "109",
       isMultiSelect: false,
       question: "Were there other diagnoses of lynch syndrome cancers through one of the patient's second degree relatives?",
       choices: [
         {
           value: "Yes",
-          nextQuestion: 10
+          nextQuestion: 110
         },
         {
           value: "No",
@@ -241,7 +243,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "10",
+      ID: "110",
       isMultiSelect: false,
       question: "How many diagnoses were there?", 
       choices: [
@@ -251,7 +253,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Two",
-          nextQuestion: 11
+          nextQuestion: 111
         },
         {
           value: "Three or more",
@@ -264,7 +266,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "11",
+      ID: "111",
       isMultiSelect: false,
       question: "Was at least one diagnosis under the age of 50?", 
       choices: [
@@ -283,7 +285,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "12",
+      ID: "112",
       isMultiSelect: false,
       question: "How many diagnoses have there been (including all Lynch)?", //reword
       choices: [
@@ -293,7 +295,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Two",
-          nextQuestion: 13
+          nextQuestion: 113
         },
         {
           value: "Three or more",
@@ -306,7 +308,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "13",
+      ID: "113",
       isMultiSelect: false,
       question: "What age were they diagnosed at?", 
       choices: [
@@ -325,13 +327,13 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "14",
+      ID: "114",
       isMultiSelect: false,
       question: "How many renal cancer diagnoses are in the patient's family?", 
       choices: [
         {
           value: "One",
-          nextQuestion: 15
+          nextQuestion: 115
         },
         {
           value: "Two or more",
@@ -344,13 +346,13 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "15",
+      ID: "115",
       isMultiSelect: false,
       question: "How old was the relative?", 
       choices: [
         {
           value: "47 or older",
-          nextQuestion: 16
+          nextQuestion: 116
         },
         {
           value: "Under the age of 47",
@@ -363,7 +365,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "16",
+      ID: "116",
       isMultiSelect: false,
       question: "Did the relative's tumor have the the following histologic characteristics? Multifocal papillary histology, HLRCC-associated RCC, RCC with fumarate hydratase (FH) deficiency or other histologic features associated with HLRCC, Birt-Hogg-Dubé syndrome (BHDS)-related histology (multiple chromophobe, oncocytoma, or oncocytic hybrid, Angiomyolipomas of the kidney and one additional tuberous sclerosis complex (TSC) criterion in the same person, or Succinate dehydrogenase (SDH)-deficient RCC histologye", 
       choices: [
@@ -382,17 +384,17 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "17",
+      ID: "117",
       isMultiSelect: false,
       question: "What is the patient's relation to the relative(s) diagnosed with prostate cancer?", 
       choices: [
         {
           value: "First degree",
-          nextQuestion: 18
+          nextQuestion: 118
         },
         {
           value: "Second degree",
-          nextQuestion: 21
+          nextQuestion: 121
         },
         {
           value: "Other",
@@ -405,7 +407,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "18",
+      ID: "118",
       isMultiSelect: false,
       question: "Was the prostate cancer high grade, cribiform, or metastatic?", 
       choices: [
@@ -415,7 +417,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 19
+          nextQuestion: 119
         },
         {
           value: "I don't know",
@@ -424,13 +426,13 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "19",
+      ID: "119",
       isMultiSelect: false,
       question: "Was anyone else in the patient's family diagnosed with cancer?", 
       choices: [
         {
           value: "Yes",
-          nextQuestion: 20
+          nextQuestion: 120
         },
         {
           value: "No",
@@ -443,7 +445,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "20",
+      ID: "120",
       isMultiSelect: false,
       question: "Which cancer(s) was the patient's relative diagnosed with?", 
       choices: [
@@ -457,7 +459,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "Colon, Gastric, Small Bowel, Biliary Tract, Brain, Bladder/Urothelial, Small intestine, sebaceous adenomas, sebaceous carcinomas, and/or keratoacanthoma?",
-          nextQuestion: 6
+          nextQuestion: 16
         },
         {
           value: "Other",
@@ -470,7 +472,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "21",
+      ID: "121",
       isMultiSelect: false,
       question: "Does the patient have at least one close blood relative diagnosed with ovarian cancer?", 
       choices: [
@@ -480,16 +482,16 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 22
+          nextQuestion: 122
         },
         {
           value: "I don't know",
-          nextQuestion: 22
+          nextQuestion: 122
         }
       ]
     },
     {
-      ID: "22",
+      ID: "122",
       isMultiSelect: false,
       question: "Does the patient have at least one close blood relative diagnosed with pancreatic cancer?", 
       choices: [
@@ -499,16 +501,16 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 23
+          nextQuestion: 123
         },
         {
           value: "I don't know",
-          nextQuestion: 23
+          nextQuestion: 123
         }
       ]
     },
     {
-      ID: "23",
+      ID: "123",
       isMultiSelect: false,
       question: "Does the patient have at least one close blood relative diagnosed with male breast cancer?", 
       choices: [
@@ -518,16 +520,16 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 24
+          nextQuestion: 124
         },
         {
           value: "I don't know",
-          nextQuestion: 24
+          nextQuestion: 124
         }
       ]
     },
     {
-      ID: "24",
+      ID: "124",
       isMultiSelect: false,
       question: "Does the patient have at least one close blood relative diagnosed with female breast cancer under the age of 51?", 
       choices: [
@@ -537,16 +539,16 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 25
+          nextQuestion: 125
         },
         {
           value: "I don't know",
-          nextQuestion: 26
+          nextQuestion: 126
         }
       ]
     },
     {
-      ID: "25",
+      ID: "125",
       isMultiSelect: false,
       question: "Are there three diagnoses of breast cancer in the patient's second or third degree relatives?", 
       choices: [
@@ -556,16 +558,16 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 26
+          nextQuestion: 126
         },
         {
           value: "I don't know",
-          nextQuestion: 26
+          nextQuestion: 126
         }
       ]
     },
     {
-      ID: "26",
+      ID: "126",
       isMultiSelect: false,
       question: "Does the patient have at least one close blood relative diagnosed with metastatic, high, or very high risk prostate cancer?", 
       choices: [
@@ -575,16 +577,16 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 27
+          nextQuestion: 127
         },
         {
           value: "I don't know",
-          nextQuestion: 27
+          nextQuestion: 127
         }
       ]
     },
     {
-      ID: "27",
+      ID: "127",
       isMultiSelect: false,
       question: "Are there two or more additional diagnoses of breast cancer and prostate cancer in the patient's second or third degree relatives?", 
       choices: [
@@ -603,7 +605,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "28",
+      ID: "128",
       isMultiSelect: false,
       question: "What is the patient's relation to the relative(s) diagnosed with male breast cancer?", 
       choices: [
@@ -630,21 +632,21 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "29",
+      ID: "129",
       isMultiSelect: false,
       question: "What is the patient's relation to the relative(s) diagnosed with female breast cancer?", 
       choices: [
         {
           value: "First degree",
-          nextQuestion: 30
+          nextQuestion: 130
         },
         {
           value: "Second degree",
-          nextQuestion: 30
+          nextQuestion: 130
         },
         {
           value: "Third degree paternal",
-          nextQuestion: 30
+          nextQuestion: 130
         },
         {
           value: "Other",
@@ -657,13 +659,13 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "30",
+      ID: "130",
       isMultiSelect: false,
       question: "What age was the relative(s) diagnosed at?", 
       choices: [
         {
           value: "51 or older",
-          nextQuestion: 31
+          nextQuestion: 131
         },
         {
           value: "Under the age of 51",
@@ -680,7 +682,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "31",
+      ID: "131",
       isMultiSelect: false,
       question: "Was it triple negative?", 
       choices: [
@@ -690,16 +692,16 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 32
+          nextQuestion: 132
         },
         {
           value: "I don't know",
-          nextQuestion: 32
+          nextQuestion: 132
         }
       ]
     },
     {
-      ID: "32",
+      ID: "132",
       isMultiSelect: false,
       question: "Are there 2 or more diagnoses of breast or prostate cancer on the same side of the family?", 
       choices: [
@@ -709,7 +711,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 33
+          nextQuestion: 133
         },
         {
           value: "I don't know",
@@ -718,7 +720,7 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "33",
+      ID: "133",
       isMultiSelect: false,
       question: "Are there other diagnoses of male breast, ovarian, or  pancreatic cancer on the same side of the family in a first or second degree relative?", 
       choices: [
@@ -728,7 +730,7 @@ export const FAMILY_HISTORY_SCHEMA = {
         },
         {
           value: "No",
-          nextQuestion: 34
+          nextQuestion: 134
         },
         {
           value: "I don't know",
@@ -737,13 +739,13 @@ export const FAMILY_HISTORY_SCHEMA = {
       ]
     },
     {
-      ID: "34",
+      ID: "134",
       isMultiSelect: false,
       question: "Does the patient have other relatives with colon, gastric, small bowel, biliary tract, brain, bladder/urothelial, small intestine, sebaceous adenomas, sebaceous carcinomas, and/or keratoacanthoma cancer?", 
       choices: [
         {
           value: "Yes",
-          nextQuestion: 6
+          nextQuestion: 16
         },
         {
           value: "No",
