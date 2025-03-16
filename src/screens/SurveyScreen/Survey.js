@@ -7,24 +7,16 @@ import {
 import Question from "../../components/Question/Question";
 import AnswerChoices from "../../components/AnswerChoices/AnswerChoices";
 import { Outcome } from '../../constants/Outcomes';
-import { FAMILY_TRACK } from '../../constants/Outcomes';
 import { Screen } from '../../constants/Screens';
-import { PERSONAL_HISTORY_SCHEMA } from "../../schemas/PersonalHistorySchema";
-import { FAMILY_HISTORY_SCHEMA } from "../../schemas/FamilyHistorySchema";
+import { QUESTION_SCHEMA } from "../../schemas/QuestionSchema";
 import { styles } from './Styles';
 import NavButton from '../../components/NavButton/NavButton';
 
 const Survey = ({ navigation }) => {
   /*
-  * Controls which survey json object is being traversed
-  * Survey always begins with Personal History questions
-  */
-  const [surveySchema, setSurveySchema]  = useState(PERSONAL_HISTORY_SCHEMA) // DEPRECATED
-
-  /*
   * Controls the question object the user is currently on, including question and answer choices
   */
-  const [questionObj, setQuestionObj] = useState(surveySchema.questions[0])
+  const [questionObj, setQuestionObj] = useState(QUESTION_SCHEMA.questions[0])
 
   /*
   * Controls the order in which questions will be asked
@@ -36,7 +28,7 @@ const Survey = ({ navigation }) => {
   /*
   * Contains the multi select answer choices the user selected.
   * Does not utilize useEffect instead uses a submit button to trigger the update
-  * TODO: will be used to help store all selected answers during breadcrumb implementation
+  * TODO: will be used to help store all selected answers during breadcrumb implementation ???
   */
   const [selectedAnswers, setSelectedAnswers] = useState([])
 
@@ -47,6 +39,8 @@ const Survey = ({ navigation }) => {
   */
   const [outcome, setOutcome] = useState(Outcome.DOES_NOT_MEET_CRITERIA)
 
+  // pass in question id, abbr, and answer
+  // pop off when back button is selected and undo outcome, selected answers, and question queue
   const [breadcrumbs, setBreadcrumbs] = useState([])
 
   const handleAnswerSelection = (selectedAnswer) => {
@@ -98,7 +92,7 @@ const Survey = ({ navigation }) => {
     // } else if (nextQuestion === FAMILY_TRACK) { // DEPRECATED
     //   console.log("Switching to family history schema...")
     //   updateQuestionQueue(FAMILY_HISTORY_SCHEMA.questions[0])
-    //   setSurveySchema(FAMILY_HISTORY_SCHEMA)
+    //   setSurveySchema(FAMILY_HISTORY_SCHEMA) // dep
     } else if (Number.isInteger(nextQuestion)) {
       updateQuestionQueue(nextQuestion)
     } else {
@@ -127,9 +121,8 @@ const Survey = ({ navigation }) => {
       if (nextQuestion !== undefined) {
         console.log("here")
         console.log(nextQuestion)
-        console.log(surveySchema)
-        console.log(surveySchema.questions[nextQuestion])
-        setQuestionObj(surveySchema.questions[nextQuestion]);
+        console.log(QUESTION_SCHEMA.questions[nextQuestion])
+        setQuestionObj(QUESTION_SCHEMA.questions[nextQuestion]);
       }
 
       return prevQueue;

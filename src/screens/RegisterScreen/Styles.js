@@ -3,10 +3,12 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     safeBackground: {
       display: 'flex',
+      flex: 1,
       alignItems: 'center',
-      marginTop: '20%'
+      backgroundColor: '#fbfbfb'
     },
     registerTitle: {
+      paddingTop: '20%',
       margin: 20,
       fontSize: 25
     },

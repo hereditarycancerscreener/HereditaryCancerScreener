@@ -4,7 +4,8 @@ export const styles = StyleSheet.create({
   safeBackground: {
     display: "flex",
     justifyContent: "space-evenly",
-    height: "100%"
+    flex: 1,
+    backgroundColor: '#fbfbfb'
   },
   questionIDText: {
     position: 'absolute',

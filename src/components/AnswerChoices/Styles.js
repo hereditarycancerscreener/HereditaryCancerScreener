@@ -35,12 +35,14 @@ export const styles = StyleSheet.create({
         textAlign: 'center'
     },
     checkboxContainer: {
+        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 10
+        marginBottom: 3
     },
     checkboxLabel: {
-        fontSize: 18,
-        marginLeft: 8
+        fontSize: 12,
+        marginLeft: 8,
+        marginBottom: 12
     }
 });

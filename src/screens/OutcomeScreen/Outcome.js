@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 
 import { Outcome as OutcomeConstant } from '../../constants/Outcomes';
@@ -30,7 +31,7 @@ const Outcome = ({ route, navigation }) => {
           <Text style={styles.outcomeTextTitle}>
             Eligible
           </Text>
-          <Text style={styles.outcomeText}>Your patient<Text style={styles.outcomeTextBolded}> meets </Text>NCCN criteria for genetic counseling and testing based on the information provided.</Text>
+          <Text style={styles.outcomeText}>Your patient<Text style={styles.outcomeTextBolded}> meets </Text>NCCNTM criteria for hereditary cancer genetic counseling and testing based on the information provided.</Text>
           <Image style={styles.image} source={require('../../images/meetsCriteria.png')}/>
         </>
       }
@@ -52,9 +53,15 @@ const Outcome = ({ route, navigation }) => {
           <Image style={styles.image} source={require('../../images/inconclusive.png')}/>
         </>
       }
-      <TouchableOpacity style={styles.startOverButton} onPress={() => navigation.replace(Screen.LANDING_SCREEN)}>
-        <Text style={styles.startOverButtonText}>Start Over</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        {/* change to be back button */}
+        <TouchableOpacity style={styles.startOverButton}>
+          <Text style={styles.startOverButtonText}>Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.startOverButton} onPress={() => navigation.replace(Screen.LANDING_SCREEN)}>
+          <Text style={styles.startOverButtonText}>Start Over</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   )
 }

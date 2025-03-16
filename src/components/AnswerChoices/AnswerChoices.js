@@ -18,12 +18,27 @@ const AnswerChoices = ({ questionObj, selectedAnswers, setSelectedAnswers, handl
         setSelectedAnswer(answer)
     }
 
+    // const handleMultiSelect = (answer) => {
+    //     const isSelected = selectedAnswers.value?.includes(answer);
+    //     setSelectedAnswers(isSelected
+    //         ? selectedAnswers.filter((selectedOption) => selectedOption !== answer)
+    //         : [...selectedAnswers, answer]
+    //     );
+    // };
+
     const handleMultiSelect = (answer) => {
-        const isSelected = selectedAnswers.value?.includes(answer);
-        setSelectedAnswers(isSelected
-            ? selectedAnswers.filter((selectedOption) => selectedOption !== answer)
-            : [...selectedAnswers, answer]
-        );
+        // const isSelected = selectedAnswers.value?.includes(answer);
+        // setSelectedAnswers(isSelected
+        //     ? selectedAnswers.filter((selectedOption) => selectedOption !== answer)
+        //     : [...selectedAnswers, answer]
+        // );
+        setSelectedAnswers((prevSelectedAnswers) => {
+            if (prevSelectedAnswers.includes(answer)) {
+                return prevSelectedAnswers.filter((item) => item !== answer); // remove if already selected
+            } else {
+                return [...prevSelectedAnswers, answer]; // add if not selected
+            }
+        });
     };
     
 
@@ -47,11 +62,11 @@ const AnswerChoices = ({ questionObj, selectedAnswers, setSelectedAnswers, handl
                             <View key={key} style={styles.checkboxContainer}>
                                  <TouchableOpacity
                                     onPress={() => handleMultiSelect(answer)}
+                                    style={styles.checkboxContainer}
                                  >
                                     <CheckBox
                                         disabled={false}
-                                        value={selectedAnswers.value?.includes(answer)}
-                                        onValueChange={() => handleMultiSelect(answer)}
+                                        value={selectedAnswers.includes(answer)}
                                         boxType='square'
                                         tintColors={{ true: '#858585', false: '#858585'}}
                                         onTintColor='#858585'
@@ -59,8 +74,9 @@ const AnswerChoices = ({ questionObj, selectedAnswers, setSelectedAnswers, handl
                                         animationDuration={0.3}
                                         onAnimationType='fade'
                                         offAnimationType='fade'
+                                        style={{ transform: [{ scaleX: 0.75 }, { scaleY: 0.75 }] }}
                                     />
-                                    <Text style={styles.checkboxLabel} onPress={() => setSelectedAnswers(answer)}>
+                                    <Text style={styles.checkboxLabel} onPress={() => handleMultiSelect(answer)}>
                                         {answer.value}
                                     </Text>
                                 </TouchableOpacity>

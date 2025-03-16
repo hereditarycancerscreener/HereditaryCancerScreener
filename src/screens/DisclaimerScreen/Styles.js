@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     safeBackground: {
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      backgroundColor: '#fbfbfb'
     },
     disclaimerTitle: {
       fontSize: 23,

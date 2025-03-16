@@ -5,6 +5,8 @@ export const styles = StyleSheet.create({
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      flex: 1,
+      backgroundColor: '#fbfbfb'
     },
     accountButton: {
       position: 'absolute',
@@ -17,15 +19,15 @@ export const styles = StyleSheet.create({
       color: '#333',
       textAlign: 'center',
       marginTop: 60,
-      marginBottom: 25
     },
     logo: {
-      width: 155,
-      height: 150
+      width: 200,
+      height: 200
     },
     landingText: {
       fontSize: 14.5,
       color: '#333',
+      marginTop: 10,
       margin: 25,
       textAlign: 'center'
     },

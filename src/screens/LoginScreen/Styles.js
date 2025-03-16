@@ -3,13 +3,15 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     safeBackground: {
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      flex: 1,
+      backgroundColor: '#fbfbfb'
     },
     logo: {
-      marginTop: 80,
-      margin: 30,
-      width: 205,
-      height: 200
+      marginTop: 60,
+      margin: 10,
+      width: 235,
+      height: 230
     },
     logInInputsContainer: {
       display: 'flex',

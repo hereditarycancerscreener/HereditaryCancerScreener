@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
+      backgroundColor: '#fbfbfb'
     },
     outcomeTextTitle: {
       fontSize: 30,
@@ -14,21 +15,25 @@ export const styles = StyleSheet.create({
     outcomeText: {
       fontSize: 18,
       color: '#333',
-      margin: 30
+      margin: 30,
+      marginBottom: 25
     },
     outcomeTextBolded: {
       fontWeight: 'bold'
     },
     image: {
-      width: 300,
-      height: 250
+      width: 225,
+      height: 225,
+    },
+    buttonContainer: {
+      margin: 20
     },
     startOverButton: {
       backgroundColor: '#951CBA',
       paddingVertical: 9,
       paddingHorizontal: 25,
       borderRadius: 20,
-      margin: 30
+      margin: 10
     },
     startOverButtonText: {
       fontSize: 20,
